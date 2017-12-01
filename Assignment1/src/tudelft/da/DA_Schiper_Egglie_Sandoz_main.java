@@ -17,6 +17,8 @@ public class DA_Schiper_Egglie_Sandoz_main {
             e.printStackTrace();
         }
 
+
+
         new ProcessManager().startNetwork();
     }
 }

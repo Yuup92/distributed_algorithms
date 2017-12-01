@@ -62,22 +62,11 @@ public class ProcessManager {
             procList.get(i).broadcastRequest();
         }
 
-        for (int i = 0; i < numberOfProcesses; i++) {
-            procList.get(i).broadcastRequest();
-        }
-
         procList.get(3).receiveToken(t);
 
         procList.get(3).broadcastRequest();
         procList.get(2).broadcastRequest();
 
-        for (int i = 0; i < numberOfProcesses; i++) {
-            procList.get(i).broadcastRequest();
-        }
-
-        for (int i = 0; i < numberOfProcesses; i++) {
-            procList.get(i).broadcastRequest();
-        }
 
     }
 

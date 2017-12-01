@@ -14,9 +14,13 @@ public class Buffer_Element implements Serializable {
     private int processNumber;
     private ArrayList<Integer> vectorClock;
 
-    public Buffer_Element(int processNumber, ArrayList<Integer> initialVector) {
+    public Buffer_Element(int processNumber, int i) {
         this.processNumber = processNumber;
-        this.vectorClock = initialVector;
+
+        this.vectorClock = new ArrayList<>();
+        for (int j = 0; j < i; j++) {
+            this.vectorClock.add(0);
+        }
     }
 
     public void updateVC(ArrayList<Integer> newVector){
@@ -77,4 +81,6 @@ public class Buffer_Element implements Serializable {
 
         return b;
     }
+
+
 }

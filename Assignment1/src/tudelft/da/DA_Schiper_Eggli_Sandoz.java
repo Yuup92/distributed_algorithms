@@ -49,16 +49,20 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
     public void sendMessage(String url, String message, int r_procID) {
         incrementVectorClock();
 
-        Message m = new Message(this.processNumber, r_procID, message, this.S, this.timeStamp, this.delay);
+        ArrayList<Buffer_Element> t = new ArrayList<>();
+        for (int i = 0; i < numOfProcInNetwork; i++) {
+            t.add(this.S.get(i));
+        }
+        Message m = new Message(this.processNumber, r_procID, message, t, this.timeStamp, this.delay);
         DA_Schiper_Eggli_Sandoz_RMI reciever = null;
 
         try{
             reciever = (DA_Schiper_Eggli_Sandoz_RMI) Naming.lookup(url);
-            reciever.receive(m);
-            //System.out.println("Y p: " + this.processNumber + " r_p: " + r_procID + " buffer_m " + m.getBuffer().toString() + " buffer: " + this.S.toString());
-            updateBuffer(r_procID);
-            //System.out.println("Process " + processNumber + " has sent a message to process " + r_procID);
 
+            reciever.receive(m);
+
+            updateBuffer(r_procID);
+            System.out.println("Process " + processNumber + " has sent a message to process " + r_procID);
 
         } catch (NotBoundException | MalformedURLException | RemoteException e) {
             System.out.println("Something went wrong in the sendMessage function for process " + this.processNumber + ", err: " + e);
@@ -70,27 +74,25 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
     public synchronized void receive(Message message) throws RemoteException {
 
         if (message.getDelay()) {
-            new Thread(new Delay(this, message)).start();
+            new Threzad(new Delay(this, message)).start();
             return;
         }
 
-        System.out.println("Process " + processNumber + " has recieved a message from process: " + message.getSentProcessID() );
-        if(deliveryAllowed(message)) {
+        if(deliveryAllowed(message, false)) {
+            System.out.println("Process " + processNumber + " has recieved a message from process: " + message.getSentProcessID());
             incrementVectorClock();
             mergeTimeStamps(message.getTimestamp());
-            mergeBuffers(message.getBuffer());
-
-
-            System.out.println("Process " + processNumber + " has delivered a message from process: " + message.getSentProcessID() + " current time stamp: " + timeStamp.toString());
+            mergeBuffers(message.getBuffer(), message.getSentProcessID());
             ArrayList<Message> mRemoved = new ArrayList<>();
-            //System.out.println("length of mBuffer " + mBuffer.size());
-            for(Message m : this.mBuffer) {
 
-                if(deliveryAllowed(m)){
+
+            for(Message m : this.mBuffer) {
+                if(deliveryAllowed(m, true)){
+                    System.out.println("Checking");
                     incrementVectorClock();
                     mergeTimeStamps(m.getTimestamp());
                     mRemoved.add(m);
-                    System.out.println("Process " + processNumber + " has recieved a message from process: " + message.getSentProcessID());
+                    System.out.println("Process " + processNumber + " has recieved a message from process: " + m.getSentProcessID() + " from buffer");
                 }
             }
             this.mBuffer.removeAll(mRemoved);
@@ -104,10 +106,7 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
 
     }
 
-    private boolean deliveryAllowed(Message m) {
-        System.out.println("Current process " + this.processNumber);
-        System.out.println("Process " + m.getSentProcessID() + " has buffer values " + m.getBufferElement(this.processNumber).toString() + " process " + this.processNumber + " has values " + timeStamp.toString());
-
+    private boolean deliveryAllowed(Message m, boolean b) {
         /**
          * This area is where the bug is happening!!! Fix this.
          */
@@ -117,7 +116,6 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
 
         if(m.getReceiveProcessID() == this.processNumber) {
             if(!r_V.compareTimeStamps(this.timeStamp)){
-                System.out.println("Batman");
                 return false;
             }
         }
@@ -133,10 +131,11 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
         }
     }
 
-    private void mergeBuffers(ArrayList<Buffer_Element> r_S) {
+    private void mergeBuffers(ArrayList<Buffer_Element> r_S, int f) {
+
         for (int i = 0; i < r_S.size(); i++) {
             if(this.S.get(i).compareVectorClock(r_S.get(i).getVectorClock())) {
-                System.out.println(i + "  " + r_S.get(i).getVectorClock().toString());
+                //System.out.println("P" + f + "  " + r_S.get(i).getVectorClock().toString());
                 this.S.get(i).updateVC(r_S.get(i).getVectorClock());
             }
         }
@@ -152,10 +151,12 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
     }
 
     private void updateBuffer(int r_procID) {
+        ArrayList<Integer> f = new ArrayList<>();
+        for (int i = 0; i < numOfProcInNetwork; i++) {
+            f.add(this.timeStamp.get(i));
+        }
         if(this.S.get(r_procID).getProcessNumber() == r_procID){
-            System.out.println("Updating buffer: " + this.timeStamp);
-            this.S.get(r_procID).updateVC(this.timeStamp);
-            System.out.println("Updated Buffer: " + this.S.toString());
+            this.S.get(r_procID).updateVC(f);
         } else {
             System.out.println("update buffer seems to be in the wrong order");
         }
@@ -171,7 +172,7 @@ public class DA_Schiper_Eggli_Sandoz extends UnicastRemoteObject
         ArrayList<Buffer_Element> S = new ArrayList<>();
 
         for (int i = 0; i < this.numOfProcInNetwork; i++) {
-            S.add(new Buffer_Element(i, DA_Schiper_Eggli_Sandoz.initializeVC(this.numOfProcInNetwork)));
+            S.add(new Buffer_Element(i, this.numOfProcInNetwork));
         }
 
         return S;

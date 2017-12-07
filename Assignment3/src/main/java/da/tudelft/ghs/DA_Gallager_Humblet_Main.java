@@ -1,9 +1,8 @@
-package da.tudelft;
+package da.tudelft.ghs;
 
 import java.rmi.RMISecurityManager;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.util.Locale;
 
 public class DA_Gallager_Humblet_Main {
 

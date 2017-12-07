@@ -1,4 +1,4 @@
-package da.tudelft;
+package da.tudelft.ghs;
 
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
@@ -110,7 +110,7 @@ public class ProcessManager  {
     }
 
     public void circleNetwork() {
-        
+
     }
 
 

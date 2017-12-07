@@ -1,4 +1,4 @@
-package da.tudelft;
+package da.tudelft.ghs;
 
 import java.rmi.Remote;
 

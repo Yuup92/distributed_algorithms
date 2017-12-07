@@ -1,4 +1,4 @@
-package da.tudelft;
+package da.tudelft.ghs;
 
 public class DA_Gallager_Humblet_Spira implements DA_Gallager_Humblet_Spira_RMI, Runnable {
 

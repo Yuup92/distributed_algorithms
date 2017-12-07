@@ -1,9 +1,9 @@
-package da.tudelft;
+package da.tudelft.ghs;
 
 import java.rmi.Remote;
 
 public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
 
-    
+
 }

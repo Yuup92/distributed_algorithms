@@ -16,6 +16,7 @@ public class Node {
         this.nodeNumber = nodeNumber;
         this.url = url;
         this.urls = new ArrayList<>();
+        this.nodeLinks = new ArrayList<>();
     }
 
     public int getNodeNumber() {
@@ -65,5 +66,15 @@ public class Node {
         }
 
         return false;
+    }
+
+    public void showConnection() {
+        String list = "";
+        for (int i = 0; i < this.nodeLinks.size() ; i++) {
+            list = list + "\n " + this.nodeLinks.get(i).toString();
+        }
+
+
+        System.out.println("Node: " + this.nodeNumber + " is connected to: " + list);
     }
 }

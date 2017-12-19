@@ -23,11 +23,13 @@ public class DA_Gallager_Humblet_Main {
          *     - Make the location of java.policy easier to find
          *     - Make the location string of java.policy more generic
          */
+
+        /**
         System.setProperty("java.security.policy", "D:/Trial/distributed_algorithms/Assignment3/src/main/resources/java.policy");
 
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new RMISecurityManager());
-        }
+        }*/
 
         new ProcessManager().startNetwork();
 

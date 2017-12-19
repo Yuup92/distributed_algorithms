@@ -33,6 +33,8 @@ public class ProcessManager  {
     private static final String RMI_LOCALHOST = "localhost/";
     private static final String RMI_PROCESS = "process_";
 
+    private static final String RMI_REMOTE_IP = "";
+
 
     public ProcessManager() {
 
@@ -40,18 +42,24 @@ public class ProcessManager  {
 
     public void startNetwork() {
 
+        String[] urls = new String[NUMBEROFPROCESSES];
+
         if(false) {
-            useConfigurationFile();
+            if(false){
+                urls = useConfigurationFile();
+            } else {
+                urls = connectToRemoteServer();
+            }
+
         } else {
-            useLocalDistributedSystem();
+           urls = useLocalDistributedSystem();
         }
 
-
-
+        circleNetwork(urls);
 
     }
 
-    public void useLocalDistributedSystem(){
+    public String[] useLocalDistributedSystem(){
 
         DA_Gallager_Humblet_Spira process;
         String[] urls = new String[NUMBEROFPROCESSES];
@@ -62,19 +70,20 @@ public class ProcessManager  {
 
         try {
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-                process = new DA_Gallager_Humblet_Spira();
+                process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
                 Naming.bind(urls[i], process);
             }
         } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
-
+            System.out.println("Processes did not want to start, error: " + e);
+            e.printStackTrace();
         }
 
-
+        return urls;
 
     }
 
-    public void useConfigurationFile() {
+    public String[] useConfigurationFile() {
 
         Configuration config = null;
         try{
@@ -104,6 +113,15 @@ public class ProcessManager  {
             i++;
         }
 
+        return urls;
+
+    }
+
+    public String[] connectToRemoteServer(){
+
+        String[] urls = null;
+
+        return urls;
 
     }
 
@@ -115,7 +133,7 @@ public class ProcessManager  {
         for (int i = 0; i < NUMBEROFPROCESSES; i++) {
             node = new Node(i, urls[i]);
 
-            if(i == NUMBEROFPROCESSES) {
+            if(i == (NUMBEROFPROCESSES - 1)) {
                 node.addLink(0, urls[0]);
             } else {
                 node.addLink(i+1, urls[i+1]);
@@ -129,6 +147,11 @@ public class ProcessManager  {
             }
         }
 
+        //Show the link number and the nodes its connected
+        /*
+        for(int i = 0; i < NUMBEROFPROCESSES; i++) {
+            nodeList.get(i).showConnection();
+        }*/
 
 
     }

@@ -1,5 +1,6 @@
 package da.tudelft.ghs;
 
+import da.tudelft.datastructures.Node;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -11,6 +12,8 @@ import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
 
 public class ProcessManager  {
 

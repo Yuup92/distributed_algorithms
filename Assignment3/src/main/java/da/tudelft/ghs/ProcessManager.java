@@ -12,6 +12,8 @@ import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
 
 public class ProcessManager  {
 
@@ -60,6 +62,9 @@ public class ProcessManager  {
             urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
         }
 
+
+
+
         try {
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
                 process = new DA_Gallager_Humblet_Spira();
@@ -107,29 +112,7 @@ public class ProcessManager  {
 
     }
 
-    public void circleNetwork(String[] urls) {
-
-        ArrayList<Node> nodeList = new ArrayList<>();
-        Node node;
-
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            node = new Node(i, urls[i]);
-
-            if(i == NUMBEROFPROCESSES) {
-                node.addLink(0, urls[0]);
-            } else {
-                node.addLink(i+1, urls[i+1]);
-            }
-            nodeList.add(node);
-        }
-
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            for (int j = 0; j < NUMBEROFPROCESSES; j++) {
-                nodeList.get(i).checkConnection(nodeList.get(j));
-            }
-        }
-
-
+    public void circleNetwork() {
 
     }
 

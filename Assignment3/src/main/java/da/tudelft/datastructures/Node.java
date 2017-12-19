@@ -2,33 +2,84 @@ package da.tudelft.datastructures;
 
 
 import java.util.ArrayList;
+import java.rmi.Naming;
+import java.util.*;
+
 
 public class Node {
 
 
     private int nodeNumber;
-    private ArrayList<Integer> nodeLinks;
+    //private ArrayList<Integer> nodeLinks;
+    private int Fragment = nodeNumber; //at the beginning the fragment name is just the node number
+    private int Level = 0; //at the beginning the level is 0
+    private int reportMessagesExpected; //number of report mesages it still expects
+    private int bestCandidate; //the best candidate for MOE the node knows about (node number)
+    private int bestWeight; //the weight of the best candidate
+    private String nodeStatus = "sleeping";
+    private int findCount;
 
-    private String url;
-    private ArrayList<String> urls;
 
-    public Node(int nodeNumber, String url) {
+    public Node() {
         this.nodeNumber = nodeNumber;
-        this.url = url;
-        this.urls = new ArrayList<>();
     }
 
     public int getNodeNumber() {
         return this.nodeNumber;
     }
 
-    public ArrayList<Integer> getNodeLinks() {
-        return nodeLinks;
+    public int getFragment(){
+        return Fragment;
     }
 
-    public String getURL() {
-        return this.url;
+    public void setFragment(int Fragment){
+        this.Fragment = Fragment;
     }
+
+    public int getLevel(){
+        return this.Level;
+    }
+
+    public void setLevel(int Level){
+        this.Level = Level;
+    }
+
+    public int getReportMessagesExpected(){
+        return reportMessagesExpected;
+    }
+
+    public int getBestCandidate(){
+        return bestCandidate;
+    }
+
+    public void setBestCandidate(int bestCandidate){
+        this.bestCandidate = bestCandidate;
+    }
+
+    public int getBestWeight(){
+        return bestWeight;
+    }
+
+    public void setBestWeight(int bestWeight){
+        this.bestWeight = bestWeight;
+    }
+
+    public String getNodeStatus(){
+        return this.nodeStatus;
+    }
+
+    public void setNodeStatus(String nodeStatus){
+        this.nodeStatus = nodeStatus;
+    }
+
+    public int getFindCount(){
+        return findCount;
+    }
+
+    public void setFindCount(int findCount){
+        this.findCount = findCount;
+    }
+
 
     /**
      * Function checks the list of current nodeLinks, if that node
@@ -37,33 +88,7 @@ public class Node {
      * @param link - number of node that is being linked to
      * @return
      */
-    public boolean addLink(int link, String url) {
-
-        for (int i = 0; i < nodeLinks.size(); i++) {
-            if(nodeLinks.get(i) == link) {
-                return false;
-            }
-        }
-        this.nodeLinks.add(link);
-        this.urls.add(url);
-        return true;
-    }
 
 
-    public boolean checkConnection(Node node) {
-        if(node.getNodeNumber() == this.nodeNumber) {
-            return false;
-        }
 
-        ArrayList<Integer> links = node.getNodeLinks();
-
-        for (int i = 0; i < links.size(); i++) {
-            if(this.nodeNumber == links.get(i)) {
-                this.addLink(node.getNodeNumber(), node.getURL());
-                return true;
-            }
-        }
-
-        return false;
-    }
 }

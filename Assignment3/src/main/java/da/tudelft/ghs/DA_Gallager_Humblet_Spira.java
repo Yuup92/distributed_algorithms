@@ -23,7 +23,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     private HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood = graph.getHmapNeighbourhood(); //the second integer is the weights
     private HashMap<Node,HashMap<Integer,String>> hmapStatus = graph.getHmapStatus();
 
-    public DA_Gallager_Humblet_Spira(){
+    public DA_Gallager_Humblet_Spira() throws RemoteException{
         this.currentClock = 0;
     }
 
@@ -67,7 +67,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
         return minEntry;
     }
 
-    public void receiveMessage(Message msg){
+    public void receiveMessage(Message msg) throws RemoteException{
         Message message = msg;
         int senderNodeNumber = message.getSenderNodeNumber();
         int receiverNodeNumber = message.getReceiverNodeNumber();
@@ -83,7 +83,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
             else if (message.getLevel() < hmapNode.get(receiverNodeNumber).getLevel()){
                 hmapStatus.get(senderNode).put(receiverNodeNumber,"in_MST");
                 try{
-                    sendMessage(senderNodeNumber, receiverNodeNumber, "initiate", receiverNode.getLevel(), hmapNeighbourhood.get(senderNode).get(receiverNodeNumber), receiverNode.getNodeStatus());
+                    sendMessage(senderNodeNumber, receiverNodeNumber,"initiate", receiverNode.getLevel(), hmapNeighbourhood.get(senderNode).get(receiverNodeNumber), receiverNode.getNodeStatus());
                 }
                 catch (RemoteException e) {
                     System.out.println("Something went wrong in the sendMessage function for node " + receiverNodeNumber + ", err: " + e);
@@ -215,7 +215,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
                     }
                     else {
                         if (hmapNeighbourhood.get(receiverNode).get(senderNodeNumber) == receiverNode.getBestWeight()){
-                            break;
+                            return;
                         }
                     }
                 }
@@ -283,7 +283,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
         }
     }
 
-    public void sendMessage(int receiverNodeNumber, int senderNodeNumber, String messageType, int Level, int Fragment, String nodeStatus){
+    public void sendMessage(int receiverNodeNumber, int senderNodeNumber, String messageType, int Level, int Fragment, String nodeStatus) throws RemoteException{
         Message m = new Message (receiverNodeNumber, senderNodeNumber, messageType, Level, Fragment, nodeStatus);
         try{
             receiveMessage(m);

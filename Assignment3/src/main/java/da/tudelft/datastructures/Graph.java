@@ -22,48 +22,53 @@ public class Graph {
         return this.hmapStatus;
     }
 
-    public boolean addLink(int nodeNumber, int maxNodeNumber, Node node, HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood) {
+    public void addLink(int nodeNumber, int neighbourNumber, int maxNodeNumber, HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood) {
 
         if ((nodeNumber < 1)|(nodeNumber > maxNodeNumber)){
             //don't add anything
-            return false;
         }
-        else {
+        else if (hmapNeighbourhood.get(hmapNode.get(nodeNumber)).get(neighbourNumber) != 0) {
             Random random = new Random();
             int rnumber = random.nextInt(10 - 1 + 1) + 1;
-            hmapNeighbourhood.get(node).put(nodeNumber,rnumber); //we assign a random weight to the edges
-            hmapStatus.get(node).put(nodeNumber,"not_in_MST"); //we initialize all nodes as not in MST
-            return true;
+            hmapNeighbourhood.get(hmapNode.get(nodeNumber)).put(neighbourNumber,rnumber); //we assign a random weight to the edges
+            hmapNeighbourhood.get(hmapNode.get(neighbourNumber)).put(nodeNumber,rnumber);
+            hmapStatus.get(hmapNode.get(nodeNumber)).put(neighbourNumber,"?_in_MST"); //we initialize all nodes as not in MST
+            hmapStatus.get(hmapNode.get(neighbourNumber)).put(nodeNumber,"?_in_MST"); //everything we change from one side we also change from the other one
         }
     }
 
     public void createNetwork(int maxNodeNumber) {
         int rows = (int)Math.round(Math.sqrt(maxNodeNumber)); //check if this is doing what it's supposed to
         int columns = maxNodeNumber/rows;
-        for (int i = 1; i < maxNodeNumber; i++){
+        for (int a = 1; a < maxNodeNumber; a++){
             Node node = new Node();
-            hmapNode.put(i, node);
+            hmapNode.put(a, node);
             hmapNeighbourhood.put(node, new HashMap<Integer,Integer>());
+            hmapNeighbourhood.get(node).put(a,0);
             hmapStatus.put(node, new HashMap <Integer, String>());
+        }
+
+        for (int i = 1; i < maxNodeNumber; i++){
+
             if ((i-1)%columns == 0){  //if we are on the left border of the grid
-                addLink(i+1,maxNodeNumber,node,hmapNeighbourhood); //we keep the one on the right, but not the one on the left
-                addLink(i+columns,maxNodeNumber,node,hmapNeighbourhood); //we also keep the one under it
-                addLink(i-columns,maxNodeNumber,node,hmapNeighbourhood); //and the one on top of it, and if it's node 1 it will be negative and the other process won't do anything
-                addLink(i+columns-1,maxNodeNumber,node,hmapNeighbourhood); //and the diagonal connection up-right
+                addLink(i,i+1,maxNodeNumber,hmapNeighbourhood); //we keep the one on the right, but not the one on the left
+                addLink(i,i+columns,maxNodeNumber,hmapNeighbourhood); //we also keep the one under it
+                addLink(i,i-columns,maxNodeNumber,hmapNeighbourhood); //and the one on top of it, and if it's node 1 it will be negative and the other process won't do anything
+                addLink(i,i+columns-1,maxNodeNumber,hmapNeighbourhood); //and the diagonal connection up-right
             }
             else if (i%columns ==0){  //if we are on the right border of the grid
-                addLink(i-1,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i+columns,maxNodeNumber,node,hmapNeighbourhood); //we also keep the one under it
-                addLink(i-columns,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i+columns-1,maxNodeNumber,node,hmapNeighbourhood); //now we keep the diagonal connection down-left
+                addLink(i,i-1,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i+columns,maxNodeNumber,hmapNeighbourhood); //we also keep the one under it
+                addLink(i,i-columns,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i+columns-1,maxNodeNumber,hmapNeighbourhood); //now we keep the diagonal connection down-left
             }
-            else {
-                addLink(i-1,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i+1,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i+columns-1,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i-columns+1,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i-columns,maxNodeNumber,node,hmapNeighbourhood);
-                addLink(i+columns,maxNodeNumber,node,hmapNeighbourhood);
+            else {  //center of the grid
+                addLink(i,i-1,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i+1,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i+columns-1,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i-columns+1,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i-columns,maxNodeNumber,hmapNeighbourhood);
+                addLink(i,i+columns,maxNodeNumber,hmapNeighbourhood);
             }
         }
     }

@@ -1,5 +1,6 @@
 package da.tudelft.ghs;
 
+import da.tudelft.datastructures.Graph;
 import da.tudelft.datastructures.Node;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
@@ -25,6 +26,7 @@ public class ProcessManager  {
      * Configurations Initial Variables
      */
     private InetAddress inetAddress;
+    private ArrayList<DA_Gallager_Humblet_Spira> processList = new ArrayList<>();
 
     /**
      * Static and constant variables defined below,
@@ -42,18 +44,24 @@ public class ProcessManager  {
 
     public void startNetwork() {
 
+        String[] urls = new String[NUMBEROFPROCESSES];
+
+        Graph graph = new Graph();
+        graph.createNetwork(NUMBEROFPROCESSES);
+
         if(false) {
-            useConfigurationFile();
+            urls =  useConfigurationFile();
         } else {
-            useLocalDistributedSystem();
+            urls = useLocalDistributedSystem(graph);
         }
 
+        processList.get(0).wakeup(1);
 
 
 
     }
 
-    public void useLocalDistributedSystem(){
+    public String[] useLocalDistributedSystem(Graph g){
 
         DA_Gallager_Humblet_Spira process;
         String[] urls = new String[NUMBEROFPROCESSES];
@@ -62,24 +70,23 @@ public class ProcessManager  {
             urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
         }
 
-
-
-
         try {
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-                process = new DA_Gallager_Humblet_Spira();
+                process = new DA_Gallager_Humblet_Spira(i, urls[i], urls, g);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
                 Naming.bind(urls[i], process);
+                this.processList.add(process);
             }
         } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
-
+            System.out.println("Processes did not want to start, error: " + e);
+            e.printStackTrace();
         }
 
 
+        return urls;
 
     }
-
-    public void useConfigurationFile() {
+    public String[] useConfigurationFile() {
 
         Configuration config = null;
         try{
@@ -109,8 +116,10 @@ public class ProcessManager  {
             i++;
         }
 
+        return urls;
 
     }
+
 
     public void circleNetwork() {
 

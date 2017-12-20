@@ -15,6 +15,6 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     //public String getUrl() throws RemoteException;
 
-   // public void initiate(int Level, int Fragment, int nodeState) throws RemoteException;
+   //public void initiate(int Level, int Fragment, int nodeState) throws RemoteException;
 
 }

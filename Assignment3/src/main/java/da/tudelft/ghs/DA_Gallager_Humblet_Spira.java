@@ -14,16 +14,33 @@ import java.util.*;
 public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA_Gallager_Humblet_Spira_RMI, Runnable {
 
     private boolean delay = false;
+    private int nodeID;
     private Graph graph;
+    private String url;
+    private String[] allUrls;
+    private Node node;
+
 
     private int currentClock;
     private ArrayList<Message> mQueue;
 
-    private HashMap<Integer, Node> hmapNode = graph.getHmapNode();
-    private HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood = graph.getHmapNeighbourhood(); //the second integer is the weights
-    private HashMap<Node,HashMap<Integer,String>> hmapStatus = graph.getHmapStatus();
+    private HashMap<Integer, Node> hmapNode = new HashMap<>();
+    private HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood= new HashMap<>(); //the second integer is the weights
+    private HashMap<Node,HashMap<Integer,String>> hmapStatus= new HashMap<>();
 
-    public DA_Gallager_Humblet_Spira() throws RemoteException{
+    public DA_Gallager_Humblet_Spira(int id, String url, String[] urls, Graph g) throws RemoteException{
+        this.url = url;
+        this.allUrls = urls;
+
+        this.graph = g;
+        this.hmapNode = graph.getHmapNode();
+        this.hmapNeighbourhood = graph.getHmapNeighbourhood();
+        this.hmapStatus = graph.getHmapStatus();
+
+        this.node = new Node();
+        this.node = hmapNode.get(id);
+
+
         this.currentClock = 0;
     }
 
@@ -32,8 +49,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     }
 
     public void wakeup(int nodeNumber){ //we carry the node numbers around and then search the hashmap to find the node
-        Node node = new Node();
-        node = hmapNode.get(nodeNumber);
+
         HashMap.Entry<Integer, Integer> minEntry = minimumWeight(node);
         int bestCandidate = minEntry.getKey();
         int bestWeight = minEntry.getValue();
@@ -54,8 +70,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     }
 
     public HashMap.Entry<Integer,Integer> minimumWeight(Node node) {
-        HashMap<Integer, Integer> hmapWeights = new HashMap<Integer, Integer>();
-        hmapWeights = hmapNeighbourhood.get(node);
+        HashMap<Integer, Integer> hmapWeights = hmapNeighbourhood.get(hmapNode.get(this.nodeID));
+        System.out.println("hmspNeigbour: "+ hmapNeighbourhood.get(hmapNode.get(this.nodeID)));
 
         HashMap.Entry<Integer, Integer> minEntry = null;
 
@@ -280,15 +296,24 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
             Node node = new Node();
             node.setNodeStatus("found");
             hmapNode.put(nodeNumber,node);
+
+            try{
+                sendMessage(node.getEdgeTowardsCore(), nodeNumber,"report", node.getLevel(), node.getFragment(), node.getNodeStatus());
+            }
+            catch (RemoteException  e) {
+                System.out.println("Something went wrong in the sendMessage function for node " + nodeNumber + ", err: " + e);
+                e.printStackTrace();}
         }
     }
 
     public void sendMessage(int receiverNodeNumber, int senderNodeNumber, String messageType, int Level, int Fragment, String nodeStatus) throws RemoteException{
         Message m = new Message (receiverNodeNumber, senderNodeNumber, messageType, Level, Fragment, nodeStatus);
+
         try{
+            DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(this.allUrls[receiverNodeNumber-1]);
             receiveMessage(m);
         }
-        catch (RemoteException e) {
+        catch (RemoteException | MalformedURLException | NotBoundException e) {
             System.out.println("Something went wrong in the sendMessage function for node " + receiverNodeNumber + ", err: " + e);
             e.printStackTrace();}
     }

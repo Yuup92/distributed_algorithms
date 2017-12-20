@@ -27,7 +27,7 @@ public class Graph {
 
 
         try {
-            if ((neighbourNumber < 1) | (neighbourNumber > maxNodeNumber)) {
+            if ((neighbourNumber < 1) | (neighbourNumber > maxNodeNumber) | (neighbourNumber == nodeNumber)) {
                 //don't add anything
             } else  {
                 hmapNeighbourhood.get(hmapNode.get(nodeNumber)).put(neighbourNumber, 0); //we assign a random weight to the edges
@@ -41,7 +41,7 @@ public class Graph {
     }
 
     public void assignWeight(int nodeNumber, int neighbourNumber, int maxNodeNumber, HashMap<Node,HashMap<Integer,Integer>> hmapNeighbourhood) {
-        if ((neighbourNumber < 1) | (neighbourNumber > maxNodeNumber)) {
+        if ((neighbourNumber < 1) | (neighbourNumber > maxNodeNumber) | (neighbourNumber == nodeNumber)) {
             //don't add anything
             }
         else if (hmapNeighbourhood.get(hmapNode.get(nodeNumber)).get(neighbourNumber) == 0 || hmapNeighbourhood.get(hmapNode.get(nodeNumber)).get(neighbourNumber) == null) {
@@ -57,10 +57,10 @@ public class Graph {
         int rows = (int)Math.round(Math.sqrt(maxNodeNumber)); //check if this is doing what it's supposed to
         int columns = maxNodeNumber/rows;
         for (int a = 1; a < maxNodeNumber + 1; a++){
-            Node node = new Node();
+            Node node = new Node(a);
+            node.setNodeStatus("sleeping");
             hmapNode.put(a, node);
             hmapNeighbourhood.put(node, new HashMap<Integer,Integer>());
-            hmapNeighbourhood.get(node).put(a,0);
             hmapStatus.put(node, new HashMap <Integer, String>());
         }
 

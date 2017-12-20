@@ -35,11 +35,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
         this.graph = g;
         this.hmapNode = graph.getHmapNode();
         this.hmapNeighbourhood = graph.getHmapNeighbourhood();
+
         this.hmapStatus = graph.getHmapStatus();
 
         this.node = new Node();
-        this.node = hmapNode.get(id);
+        this.node = hmapNode.get(id+1);
 
+        System.out.println("Hi, we are in node " + node.getNodeNumber() + " and it should equal " + hmapNode.get(id+1).getNodeNumber() + " with ID " + (id+1));
 
         this.currentClock = 0;
     }
@@ -49,18 +51,20 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     }
 
     public void wakeup(int nodeNumber){ //we carry the node numbers around and then search the hashmap to find the node
-
-        HashMap.Entry<Integer, Integer> minEntry = minimumWeight(node);
+        Node wakeupNode = new Node();
+        wakeupNode = hmapNode.get(nodeNumber);
+        System.out.println("Wake up, " + (hmapNode.get(nodeNumber).getNodeStatus() + " node " + nodeNumber));
+        HashMap.Entry<Integer, Integer> minEntry = minimumWeight(hmapNode.get(nodeNumber));
         int bestCandidate = minEntry.getKey();
         int bestWeight = minEntry.getValue();
-        node.setBestCandidate(bestCandidate);
-        node.setBestWeight(bestWeight);
-        hmapStatus.get(node).put(bestCandidate,"in_MST");
-        node.setLevel(0);
-        node.setNodeStatus("found");
-        node.setFindCount(0);
-        hmapNode.put(nodeNumber,node); //let's update good old nodelist now that we changed stuff
-        try {
+        wakeupNode.setBestCandidate(bestCandidate);
+        wakeupNode.setBestWeight(bestWeight);
+        hmapStatus.get(wakeupNode).put(bestCandidate,"in_MST");
+        wakeupNode.setLevel(0);
+        wakeupNode.setNodeStatus("found");
+        wakeupNode.setFindCount(0);
+        hmapNode.put(nodeNumber,wakeupNode); //let's update good old nodelist now that we changed stuff
+        try {System.out.println("Connection attempt from "  + node.getNodeNumber() + " to " + bestCandidate);
             sendMessage(bestCandidate, nodeNumber, "connect", node.getLevel(), node.getFragment(), node.getNodeStatus());
         }
         catch (RemoteException e){
@@ -70,20 +74,25 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     }
 
     public HashMap.Entry<Integer,Integer> minimumWeight(Node node) {
-        HashMap<Integer, Integer> hmapWeights = hmapNeighbourhood.get(hmapNode.get(this.nodeID));
-        System.out.println("hmspNeigbour: "+ hmapNeighbourhood.get(hmapNode.get(this.nodeID)));
+        Node nodeMin = new Node();
+        nodeMin = node;
+        HashMap<Integer, Integer> hmapWeights = new HashMap<Integer, Integer>();
+        hmapWeights = hmapNeighbourhood.get(nodeMin);
+        System.out.println("hmapNeigbour: "+ hmapNeighbourhood.get(nodeMin));
+        System.out.println("hmapNeighbourStatus: " + hmapStatus.get(nodeMin));
 
         HashMap.Entry<Integer, Integer> minEntry = null;
 
         for (HashMap.Entry<Integer, Integer> entry : hmapWeights.entrySet()) {
-            if (minEntry == null || minEntry.getValue() > entry.getValue()) {
+            if ((minEntry == null) || (minEntry.getValue() > entry.getValue())) {
                 minEntry = entry;
             }
         }
         return minEntry;
     }
 
-    public void receiveMessage(Message msg) throws RemoteException{
+    public synchronized void receiveMessage(Message msg) throws RemoteException{
+        System.out.println("A message " + msg.getMessageType() + " from " + msg.getSenderNodeNumber() + " to " + msg.getReceiverNodeNumber() + " we are in node " + node.getNodeNumber());
         Message message = msg;
         int senderNodeNumber = message.getSenderNodeNumber();
         int receiverNodeNumber = message.getReceiverNodeNumber();
@@ -91,13 +100,17 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
         Node senderNode = new Node();
         Node receiverNode = new Node();
         senderNode = hmapNode.get(senderNodeNumber);
+        receiverNode = hmapNode.get(receiverNodeNumber);
 
-        if (message.getMessageType() == "connect") {
+        if (message.getMessageType().compareTo("connect") == 0) {
+            System.out.println("Entering the connect subcase, the node is " + receiverNodeNumber + " and it is " + hmapNode.get(receiverNodeNumber).getNodeStatus());
             if (hmapNode.get(receiverNodeNumber).getNodeStatus() == "sleeping"){
+                System.out.println("Let us wake up " + receiverNode.getNodeStatus() + " node " + receiverNodeNumber);
                 wakeup(receiverNodeNumber);
             }
             else if (message.getLevel() < hmapNode.get(receiverNodeNumber).getLevel()){
-                hmapStatus.get(senderNode).put(receiverNodeNumber,"in_MST");
+                hmapStatus.get(receiverNode).put(senderNodeNumber,"in_MST");
+                System.out.println("Node " + senderNodeNumber + " sent " + message.getMessageType() + " to node " + receiverNodeNumber + "and is now" + hmapStatus.get(receiverNode).get(senderNodeNumber));
                 try{
                     sendMessage(senderNodeNumber, receiverNodeNumber,"initiate", receiverNode.getLevel(), hmapNeighbourhood.get(senderNode).get(receiverNodeNumber), receiverNode.getNodeStatus());
                 }
@@ -111,25 +124,28 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
                     receiverNode.setFindCount(findCount);
                     hmapNode.put(receiverNodeNumber,receiverNode);
                 }
-                else {
-                    if (hmapStatus.get(receiverNode).get(senderNodeNumber) == "?_in_MST"){ //if the sender is in the neighbourhood of the receiver
-                        this.mQueue.add(message);
-                    }
-                    else {
-                        try {
-                            sendMessage(senderNodeNumber, receiverNodeNumber, "initiate", receiverNode.getLevel()+1, hmapNeighbourhood.get(senderNode).get(receiverNodeNumber), "find");
-                        }
-                        catch (RemoteException e) {
-                            System.out.println("Something went wrong in the sendMessage function for node " + receiverNodeNumber + ", err: " + e);
-                            e.printStackTrace();
-                        }
-                    }
-
+            }
+            else {
+                System.out.println("Receiver node is " + receiverNodeNumber + " with status " + receiverNode.getNodeStatus() + " and sender node is " + senderNodeNumber + " with status " + senderNode.getNodeStatus());
+                if (hmapStatus.get(receiverNode).get(senderNodeNumber) == "?_in_MST"){ //if the sender is in the neighbourhood of the receiver
+                    System.out.println("Connect, ?_in_MST case");
+                    this.mQueue.add(message);
                 }
+                else {
+                    System.out.println("Connect, absorb");
+                    try {
+                        sendMessage(senderNodeNumber, receiverNodeNumber, "initiate", receiverNode.getLevel()+1, hmapNeighbourhood.get(senderNode).get(receiverNodeNumber), "find");
+                    }
+                    catch (RemoteException e) {
+                        System.out.println("Something went wrong in the sendMessage function for node " + receiverNodeNumber + ", err: " + e);
+                        e.printStackTrace();
+                    }
+                }
+
             }
 
         }
-        else if(message.getMessageType() == "initiate"){
+        else if(message.getMessageType().compareTo("initiate") == 0){
             receiverNode.setLevel(message.getLevel());
             receiverNode.setFragment(message.getFragment());
             receiverNode.setNodeStatus(message.getStatus());
@@ -198,13 +214,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
                 }
             }
         }
-        else if (message.getMessageType() == "reject"){
+        else if (message.getMessageType().compareTo("reject") == 0){
             if (hmapStatus.get(receiverNode).get(senderNodeNumber) == "?_in_MST") {
                 hmapStatus.get(receiverNode).put(senderNodeNumber,"not_in_MST");
             }
             test(receiverNodeNumber);
         }
-        else if (message.getMessageType() == "accept"){
+        else if (message.getMessageType().compareTo("accept") == 0){
             receiverNode.setTestCandidate(0); //it's a zero so there is no test candidate
             if (hmapNeighbourhood.get(senderNode).get(receiverNodeNumber) < receiverNode.getBestWeight()){
                 receiverNode.setBestWeight(hmapNeighbourhood.get(senderNode).get(receiverNodeNumber));
@@ -212,7 +228,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
                 hmapNode.put(receiverNodeNumber,receiverNode);
             }
         }
-        else if (message.getMessageType() == "report"){
+        else if (message.getMessageType().compareTo("report") == 0){
             if (receiverNode.getEdgeTowardsCore() != senderNodeNumber) {
                 receiverNode.setFindCount(receiverNode.getFindCount()+1);
                 if (hmapNeighbourhood.get(receiverNode).get(senderNodeNumber) < receiverNode.getBestWeight()){
@@ -231,13 +247,22 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
                     }
                     else {
                         if (hmapNeighbourhood.get(receiverNode).get(senderNodeNumber) == receiverNode.getBestWeight()){
+                            System.out.println("You got it");
+                            for (HashMap.Entry<Integer, Node> entry : hmapNode.entrySet()) {
+                                System.out.println("We are looking at node: " + entry.getKey());
+                                HashMap<Integer,Integer> hmapWeights = new HashMap<Integer,Integer>();
+                                hmapWeights = hmapNeighbourhood.get(entry.getValue());
+                                for (HashMap.Entry<Integer, Integer> entry2 : hmapWeights.entrySet()){
+                                    System.out.println("And it is connected to: " + entry2.getKey() + "with weight " + entry2.getValue() + "and status " + hmapStatus.get(entry.getValue()).get(entry2.getKey()));
+                                }
+                            }
                             return;
                         }
                     }
                 }
             }
         }
-        else if (message.getMessageType() == "change_root"){
+        else if (message.getMessageType().compareTo("change_root") == 0){
             change_root(receiverNodeNumber);
         }
     }
@@ -307,15 +332,28 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject implements DA
     }
 
     public void sendMessage(int receiverNodeNumber, int senderNodeNumber, String messageType, int Level, int Fragment, String nodeStatus) throws RemoteException{
+        System.out.println("sendMessage " + messageType + " from " + senderNodeNumber + " to " + receiverNodeNumber);
         Message m = new Message (receiverNodeNumber, senderNodeNumber, messageType, Level, Fragment, nodeStatus);
 
         try{
             DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(this.allUrls[receiverNodeNumber-1]);
-            receiveMessage(m);
+            System.out.println("sendMessage, url: " + this.allUrls[receiverNodeNumber-1]);
+            receiver.receiveMessage(m);
         }
         catch (RemoteException | MalformedURLException | NotBoundException e) {
             System.out.println("Something went wrong in the sendMessage function for node " + receiverNodeNumber + ", err: " + e);
             e.printStackTrace();}
+    }
+
+    public void printNetwork() {
+        for (HashMap.Entry<Integer, Node> entry : hmapNode.entrySet()) {
+            System.out.println("We are looking at node: " + entry.getKey());
+            HashMap<Integer,Integer> hmapWeights = new HashMap<Integer,Integer>();
+            hmapWeights = hmapNeighbourhood.get(entry.getValue());
+            for (HashMap.Entry<Integer, Integer> entry2 : hmapWeights.entrySet()){
+                System.out.println("And it is connected to: " + entry2.getKey() + "with weight" + entry2.getValue());
+            }
+        }
     }
 
 

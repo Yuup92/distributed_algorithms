@@ -16,13 +16,14 @@ public class Node {
     private int reportMessagesExpected; //number of report mesages it still expects
     private int bestCandidate; //the best candidate for MOE the node knows about (node number)
     private int bestWeight; //the weight of the best candidate
-    private String nodeStatus = "sleeping";
+    private String nodeStatus;
     private int findCount;
     private int edgeTowardsCore;
     private int testCandidate;
 
+    public Node()  { }
 
-    public Node() {
+    public Node(int nodeNumber) {
         this.nodeNumber = nodeNumber;
     }
 

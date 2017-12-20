@@ -13,7 +13,7 @@ public class Message implements Serializable {
     private int Fragment;
     private String s_Status;
 
-    public Message(int senderNodeNumber, int receiverNodeNumber, String mType, int L, int F, String S) {
+    public Message(int receiverNodeNumber, int senderNodeNumber, String mType, int L, int F, String S) {
         this.messageType = mType;
         this.s_Node = senderNodeNumber;
         this.r_Node = receiverNodeNumber;

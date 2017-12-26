@@ -1,5 +1,6 @@
 package da.tudelft.ghs;
 
+import da.tudelft.Network.CircleNetwork;
 import da.tudelft.datastructures.Node;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
@@ -17,6 +18,7 @@ public class ProcessManager  {
 
 
     private ArrayList<DA_Gallager_Humblet_Spira> procList;
+    private ArrayList<Node> nodeList;
 
 
     /**
@@ -55,7 +57,7 @@ public class ProcessManager  {
            urls = useLocalDistributedSystem();
         }
 
-        circleNetwork(urls);
+        this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
     }
 
@@ -125,36 +127,7 @@ public class ProcessManager  {
 
     }
 
-    public void circleNetwork(String[] urls) {
 
-        ArrayList<Node> nodeList = new ArrayList<>();
-        Node node;
-
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            node = new Node(i, urls[i]);
-
-            if(i == (NUMBEROFPROCESSES - 1)) {
-                node.addLink(0, urls[0]);
-            } else {
-                node.addLink(i+1, urls[i+1]);
-            }
-            nodeList.add(node);
-        }
-
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            for (int j = 0; j < NUMBEROFPROCESSES; j++) {
-                nodeList.get(i).checkConnection(nodeList.get(j));
-            }
-        }
-
-        //Show the link number and the nodes its connected
-        /*
-        for(int i = 0; i < NUMBEROFPROCESSES; i++) {
-            nodeList.get(i).showConnection();
-        }*/
-
-
-    }
 
 
 }

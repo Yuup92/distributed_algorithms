@@ -7,7 +7,7 @@ public class Node {
 
 
     private int nodeNumber;
-    private ArrayList<Integer> nodeLinks;
+    private ArrayList<Edge> nodeEdges;
 
     private String url;
     private ArrayList<String> urls;
@@ -16,15 +16,19 @@ public class Node {
         this.nodeNumber = nodeNumber;
         this.url = url;
         this.urls = new ArrayList<>();
-        this.nodeLinks = new ArrayList<>();
+        this.nodeEdges = new ArrayList<>();
     }
 
     public int getNodeNumber() {
         return this.nodeNumber;
     }
 
-    public ArrayList<Integer> getNodeLinks() {
-        return nodeLinks;
+    public String getUrl() {
+        return this.url;
+    }
+
+    public ArrayList<Edge> getNodeEdges() {
+        return nodeEdges;
     }
 
     public String getURL() {
@@ -35,18 +39,16 @@ public class Node {
      * Function checks the list of current nodeLinks, if that node
      * is not in the list it will add it and return true. If node is already
      * in link than the function will return false.
-     * @param link - number of node that is being linked to
      * @return
      */
-    public boolean addLink(int link, String url) {
+    public boolean addLink(Edge edge) {
 
-        for (int i = 0; i < nodeLinks.size(); i++) {
-            if(nodeLinks.get(i) == link) {
+        for (int i = 0; i < nodeEdges.size(); i++) {
+            if(nodeEdges.get(i).getLinkToNode() == edge.getLinkToNode()) {
                 return false;
             }
         }
-        this.nodeLinks.add(link);
-        this.urls.add(url);
+        this.nodeEdges.add(edge);
         return true;
     }
 
@@ -56,11 +58,12 @@ public class Node {
             return false;
         }
 
-        ArrayList<Integer> links = node.getNodeLinks();
+        ArrayList<Edge> nodeEdges = node.getNodeEdges();
 
-        for (int i = 0; i < links.size(); i++) {
-            if(this.nodeNumber == links.get(i)) {
-                this.addLink(node.getNodeNumber(), node.getURL());
+        for (int i = 0; i < nodeEdges.size(); i++) {
+            if(this.nodeNumber == nodeEdges.get(i).getLinkToNode()) {
+                Edge edge = new Edge(node.getNodeNumber(), nodeEdges.get(i).getWeight(), node.getUrl());
+                this.addLink(edge);
                 return true;
             }
         }
@@ -69,12 +72,11 @@ public class Node {
     }
 
     public void showConnection() {
-        String list = "";
-        for (int i = 0; i < this.nodeLinks.size() ; i++) {
-            list = list + "\n " + this.nodeLinks.get(i).toString();
+
+        String list = "\n";
+        for (int i = 0; i < this.nodeEdges.size() ; i++) {
+            list = list + this.nodeEdges.get(i).toString() + "\n";
         }
-
-
-        System.out.println("Node: " + this.nodeNumber + " is connected to: " + list);
+        System.out.println("Node: " + this.nodeNumber + ", with url: " + this.url + " is connected to: " + list);
     }
 }

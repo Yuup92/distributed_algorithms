@@ -39,7 +39,7 @@ public class ProcessManager  {
 
 
     public ProcessManager() {
-
+        this.procList = new ArrayList<>();
     }
 
     public void startNetwork() {
@@ -59,6 +59,13 @@ public class ProcessManager  {
 
         this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
+        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+            procList.get(i).addNode(nodeList.get(i));
+        }
+
+        procList.get(5).wakeUp();
+
+
     }
 
     public String[] useLocalDistributedSystem(){
@@ -75,6 +82,7 @@ public class ProcessManager  {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
                 Naming.bind(urls[i], process);
+                procList.add(process);
             }
         } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
             System.out.println("Processes did not want to start, error: " + e);

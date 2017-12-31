@@ -19,17 +19,15 @@
     <favorites_list name="Assignment3" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.57249534">
+    <splitter split-orientation="horizontal" split-proportion="0.5146235">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
           <file leaf-file-name="DA_Gallager_Humblet_Spira_RMI.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
+                <state relative-caret-position="204">
                   <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -37,13 +35,11 @@
           <file leaf-file-name="DA_Gallager_Humblet_Spira.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-350">
-                  <caret line="73" column="97" selection-start-line="73" selection-start-column="97" selection-end-line="73" selection-end-column="97" />
+                <state relative-caret-position="-153">
+                  <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <element signature="e#4700#4701#0" expanded="true" />
-                    <element signature="e#4736#4737#0" expanded="true" />
                     <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
                   </folding>
                 </state>
@@ -55,7 +51,9 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-                  <folding />
+                  <folding>
+                    <element signature="imports" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -77,11 +75,9 @@
           <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="469">
+                <state relative-caret-position="486">
                   <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
                   <folding>
-                    <element signature="e#1173#1174#0" expanded="true" />
-                    <element signature="e#1222#1223#0" expanded="true" />
                     <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
                     <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
                     <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -93,13 +89,15 @@
           <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="479">
-                  <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+                <state relative-caret-position="615">
+                  <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#addLink#0;class#Node#0" expanded="false" />
                     <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
                     <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+                    <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+                    <element signature="method#resetBestEdge#0;class#Node#0" expanded="false" />
                     <element signature="docComment;method#setNodeState#0;class#Node#0" expanded="false" />
                     <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
                   </folding>
@@ -123,10 +121,24 @@
           <file leaf-file-name="Edge.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-7">
+                <state relative-caret-position="68">
                   <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
                   <folding>
                     <element signature="method#toString#0;class#Edge#0" expanded="false" />
+                    <element signature="e#755#756#0" expanded="false" />
+                    <element signature="e#798#799#0" expanded="false" />
+                    <element signature="e#842#843#0" expanded="false" />
+                    <element signature="e#886#887#0" expanded="false" />
+                    <element signature="e#925#926#0" expanded="false" />
+                    <element signature="e#964#965#0" expanded="false" />
+                    <element signature="e#997#998#0" expanded="false" />
+                    <element signature="e#1034#1035#0" expanded="false" />
+                    <element signature="e#1068#1069#0" expanded="false" />
+                    <element signature="e#1106#1107#0" expanded="false" />
+                    <element signature="e#1136#1137#0" expanded="false" />
+                    <element signature="e#1170#1171#0" expanded="false" />
+                    <element signature="e#1200#1201#0" expanded="false" />
+                    <element signature="e#1231#1232#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -161,9 +173,9 @@
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java" />
-        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java" />
       </list>
     </option>
   </component>
@@ -247,8 +259,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -257,7 +269,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Assignment2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -606,7 +618,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1433902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -618,6 +629,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -675,9 +687,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -685,7 +695,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -698,6 +710,8 @@
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+            <element signature="method#resetBestEdge#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#setNodeState#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
           </folding>
@@ -717,8 +731,6 @@
         <state relative-caret-position="408">
           <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -733,8 +745,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -744,9 +754,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -757,8 +765,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -768,7 +774,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -777,8 +785,6 @@
         <state relative-caret-position="1377">
           <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -795,6 +801,8 @@
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+            <element signature="method#resetBestEdge#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#setNodeState#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
           </folding>
@@ -813,9 +821,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -826,8 +832,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -837,7 +841,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -846,8 +852,6 @@
         <state relative-caret-position="1377">
           <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -864,6 +868,8 @@
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+            <element signature="method#resetBestEdge#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#setNodeState#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
           </folding>
@@ -882,9 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -895,8 +899,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -906,7 +908,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="899">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -923,8 +927,6 @@
         <state relative-caret-position="1943">
           <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -936,9 +938,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -949,8 +949,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -960,7 +958,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="812">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -977,8 +977,6 @@
         <state relative-caret-position="725">
           <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -990,9 +988,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,8 +999,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -1014,7 +1008,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,8 +1028,6 @@
         <state relative-caret-position="609">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -1045,9 +1039,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,8 +1050,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
             <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
@@ -1069,7 +1059,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1078,8 +1070,6 @@
         <state relative-caret-position="783">
           <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -1140,17 +1130,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding>
+            <element signature="method#toString#0;class#Edge#0" expanded="false" />
+            <element signature="e#755#756#0" expanded="false" />
+            <element signature="e#798#799#0" expanded="false" />
+            <element signature="e#842#843#0" expanded="false" />
+            <element signature="e#886#887#0" expanded="false" />
+            <element signature="e#925#926#0" expanded="false" />
+            <element signature="e#964#965#0" expanded="false" />
+            <element signature="e#997#998#0" expanded="false" />
+            <element signature="e#1034#1035#0" expanded="false" />
+            <element signature="e#1068#1069#0" expanded="false" />
+            <element signature="e#1106#1107#0" expanded="false" />
+            <element signature="e#1136#1137#0" expanded="false" />
+            <element signature="e#1170#1171#0" expanded="false" />
+            <element signature="e#1200#1201#0" expanded="false" />
+            <element signature="e#1231#1232#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="486">
           <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
           <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1222#1223#0" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#useConfigurationFile#0;class#ProcessManager#0" expanded="false" />
             <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
@@ -1158,51 +1180,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        <state relative-caret-position="-153">
+          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
           <folding>
-            <element signature="method#toString#0;class#Edge#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+        <state relative-caret-position="615">
+          <caret line="115" column="45" selection-start-line="115" selection-start-column="45" selection-end-line="115" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+            <element signature="method#resetBestEdge#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#setNodeState#0;class#Node#0" expanded="false" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-350">
-          <caret line="73" column="97" selection-start-line="73" selection-start-column="97" selection-end-line="73" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="e#4700#4701#0" expanded="true" />
-            <element signature="e#4736#4737#0" expanded="true" />
-            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>

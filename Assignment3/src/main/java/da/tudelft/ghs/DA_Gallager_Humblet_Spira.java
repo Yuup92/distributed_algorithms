@@ -82,6 +82,11 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if (levelFragmentSender < this.node.getLevelFragement()) {
             edge.setEdgeStateINMST();
+
+            if(this.node.getNameFragement() < 0) {
+                this.node.findNameFragment(senderNode);
+            }
+
             sendInitiate(edge.getUrl(), this.node.getLevelFragement(), this.node.getNameFragement(), this.node.getNodeState(), this.node.getNodeNumber());
             if (this.node.getNodeState() == FIND) {
                 this.findCount++;

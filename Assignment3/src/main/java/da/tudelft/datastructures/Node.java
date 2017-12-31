@@ -36,6 +36,7 @@ public class Node implements Serializable{
         this.nodeEdges = new ArrayList<>();
 
         this.nodeState = SLEEPING;
+        this.levelFragement = -1;
     }
 
     /**
@@ -104,6 +105,17 @@ public class Node implements Serializable{
 
     public void resetBestEdge() {
         this.bestEdge = null;
+
+    }
+
+    public void findNameFragment(Node node) {
+
+        if(this.nodeNumber < node.getNodeNumber()) {
+            setNameFragment(node.getNodeNumber());
+        } else {
+            setNameFragment(this.nodeNumber);
+        }
+
 
     }
 

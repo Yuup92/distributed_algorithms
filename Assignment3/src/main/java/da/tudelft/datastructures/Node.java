@@ -20,6 +20,7 @@ public class Node implements Serializable{
     private int numberReportMessages;
     private int findCount;
 
+    private Edge inBranch = null;
     private Edge coreEdge = null;
     private Edge bestEdge = null;
     private Edge currentTestEdge= null;
@@ -119,9 +120,39 @@ public class Node implements Serializable{
 
     }
 
+    public boolean checkEdgesNotInMST() {
+
+        boolean test = false;
+        int bestWeight = Integer.MAX_VALUE;
+        this.currentTestEdge = null;
+
+        for (int i = 0; i < this.nodeEdges.size() ; i++) {
+            if( this.nodeEdges.get(i).isUnkownInMST() && bestWeight > this.nodeEdges.get(i).getWeight()) {
+                this.currentTestEdge = this.nodeEdges.get(i);
+                test = true;
+            }
+        }
+
+        return test;
+    }
+
     /**
      *
      */
+
+    public void setInBranch(int nodeNumber) {
+
+
+
+        for (int i = 0; i < this.nodeEdges.size(); i++) {
+            if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
+                this.inBranch = this.nodeEdges.get(i);
+            }
+        }
+
+        System.out.println(this.nodeNumber + " has an inbranch");
+
+    }
 
     public void setNodeState(int state) {
         this.nodeState = state;
@@ -149,6 +180,14 @@ public class Node implements Serializable{
 
     public void setFindCount(int num) {
         this.findCount = num;
+    }
+
+    public void setCurrentTestEdge(Edge edge) {
+        this.currentTestEdge = edge;
+    }
+
+    public void setBestEdge(Edge edge) {
+        this.bestEdge = edge;
     }
 
     /**
@@ -210,5 +249,9 @@ public class Node implements Serializable{
             }
         }
         return null;
+    }
+
+    public Edge getInBranch() {
+        return this.inBranch;
     }
 }

@@ -27,6 +27,13 @@ public class Edge implements Serializable {
         return "   Linked Node: " + this.linkToNode + "  with weight: " + this.weight + " url: " + this.url;
     }
 
+    public boolean isUnkownInMST() {
+        if(this.edgeState == UNKNOWN_MST) {
+            return true;
+        }
+        return false;
+    }
+
     public void setEdgeStateNOTMST() {
         this.edgeState = NOT_IN_MST;
     }

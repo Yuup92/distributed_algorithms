@@ -15,7 +15,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         implements DA_Gallager_Humblet_Spira_RMI, Runnable, Serializable {
 
     private int processID;
-    private String url;
+    private String _url;
 
     private Node node;
     private int findCount;
@@ -32,7 +32,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     public DA_Gallager_Humblet_Spira(int ID, String url) throws RemoteException{
         this.processID = ID;
-        this.url = url;
+        this._url = url;
 
         this.node = null;
 
@@ -73,9 +73,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveConnect(int levelFragmentSender, Node senderNode) throws RemoteException {
 
-        if (this.node.getNodeState() == SLEEPING) {
-            wakeUp();
-        }
+        wakeUpNode();
 
         Edge edge = this.node.getEdgeWithConnection(senderNode.getNodeNumber());
 
@@ -116,11 +114,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveInitiate(int s_nodeLevel, int s_fragmentName, int s_nodeState, int s_nodeNumber) throws RemoteException {
 
+        //System.out.println("Received an Initiate at process: " + processID);
+
         this.node.setLevelFragment(s_nodeLevel);
         this.node.setNameFragment(s_fragmentName);
         this.node.setNodeState(s_nodeState);
+        this.node.setInBranch(s_nodeNumber);
 
-        //in-branch??
         this.node.resetBestEdge();
 
         ArrayList<Edge> listEdges = this.node.getNodeEdges();
@@ -135,10 +135,190 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
         }
         if(this.node.getNodeState() == FIND) {
-            //test()
+            sendTest();
         }
 
-        System.out.println("Received an Initiate at process: " + processID);
+
+    }
+
+    @Override
+    public void sendTest() {
+
+        if( this.node.checkEdgesNotInMST()) {
+            String url = this.node.getCurrentTestEdge().getUrl();
+
+            try{
+                DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                receiver.receiveTest(this.node.getNodeNumber(), this.node.getLevelFragement(), this.node.getNameFragement());
+            } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                e.printStackTrace();
+            }
+        } else {
+            this.node.setCurrentTestEdge(null);
+            sendReport();
+        }
+    }
+
+    @Override
+    public void receiveTest(int s_NN, int s_LN, int s_FN) {
+        wakeUpNode();
+
+        Edge edge = this.node.getEdgeWithConnection(s_NN);
+
+        if( s_LN > this.node.getLevelFragement() ) {
+            //TODO add message to message queue
+        } else {
+            if(s_FN != this.node.getNameFragement()) {
+
+                // This may not be right
+                String url = edge.getUrl();
+
+                try{
+                    DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                    receiver.receiveAccept(this.node.getNodeNumber());
+                } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                    System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                    e.printStackTrace();
+                }
+            } else {
+                if(edge.getEdgeState() == UNKNOWN_MST) {
+                    edge.setEdgeStateNOTMST();
+                }
+
+                if(this.node.getCurrentTestEdge() != null && this.node.getCurrentTestEdge().getLinkToNode() != s_NN ) {
+                    System.out.println("Current node: " + this.node.getNodeNumber() + " linked to node: " + this.node.getCurrentTestEdge().getLinkToNode() + " sender was: " + s_NN);
+
+                    String url = edge.getUrl();
+
+                    try{
+                        DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                        receiver.receiveAccept(this.node.getNodeNumber());
+                    } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                        System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                        e.printStackTrace();
+                    }
+
+
+                } else {
+
+                    sendTest();
+                }
+
+
+            }
+        }
+    }
+
+    @Override
+    public void receiveAccept(int s_NN) {
+
+        Edge edge = this.node.getEdgeWithConnection(s_NN);
+
+        this.node.setCurrentTestEdge(null);
+
+        if( edge.getWeight() < this.node.getBestEdge().getWeight() ) {
+            this.node.setBestEdge(edge);
+        }
+        sendReport();
+    }
+
+    @Override
+    public void receiveReject(int s_NN) {
+
+        Edge edge = this.node.getEdgeWithConnection(s_NN);
+
+        if(edge.isUnkownInMST()) {
+            edge.setEdgeStateNOTMST();
+        }
+        sendTest();
+    }
+
+    @Override
+    public void sendReport() {
+
+
+        if( findCount == 0 && this.node.getCurrentTestEdge() == null ) {
+            this.node.setNodeStateFOUND();
+
+            try {
+                String url = this.node.getInBranch().getUrl();
+                try{
+                    DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                    receiver.receiveReport(this.node.getNodeNumber(), this.node.getBestEdge().getWeight());
+                } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                    System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                    e.printStackTrace();
+                }
+            } catch (NullPointerException e) {
+                System.out.println(this.node.getNodeNumber() + " node tried to send to an inbranch but it was null");
+            }
+
+
+
+        }
+
+    }
+
+    @Override
+    public void receiveReport(int s_NN, int w) {
+
+
+        Edge edge = this.node.getEdgeWithConnection(s_NN);
+
+        if( s_NN != this.node.getInBranch().getLinkToNode() ) {
+            this.findCount = this.findCount - 1;
+            if( w < this.node.getBestEdge().getWeight() ) {
+                this.node.setBestEdge(edge);
+            }
+            sendReport();
+        } else {
+
+            if( this.node.getNodeState() == FIND) {
+                //TODO add message to buffer
+            } else {
+                if( w > this.node.getBestEdge().getWeight()) {
+                    sendChangeRoot();
+                } else {
+                    if( w == this.node.getBestEdge().getWeight()) {
+                        //HALT
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    @Override
+    public void sendChangeRoot(){
+
+        String url = this.node.getBestEdge().getUrl();
+
+        if( this.node.getBestEdge().getEdgeState() == IN_MST) {
+
+
+
+            try{
+                DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                receiver.receiveChangeRoot();
+            } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                e.printStackTrace();
+            }
+        } else {
+
+            sendConnect(url, this.node.getLevelFragement());
+            this.node.getBestEdge().setEdgeStateINMST();
+
+        }
+
+    }
+
+    @Override
+    public void receiveChangeRoot() {
+
+        sendChangeRoot();
     }
 
     @Override
@@ -154,6 +334,12 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     public void run() {
 
+    }
+
+    public void wakeUpNode() {
+        if (this.node.getNodeState() == SLEEPING) {
+            wakeUp();
+        }
     }
 
 

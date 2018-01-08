@@ -20,6 +20,9 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private Node node;
     private int findCount;
 
+
+
+
     //Constant variables
     private final static int SLEEPING = 0;
     private final static int FIND = 1;
@@ -54,6 +57,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         //This function system.out's
         wakeUpMessage(edge);
 
+
+
         sendConnect(edge.getUrl(), this.node.getLevelFragement());
     }
 
@@ -70,6 +75,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     }
 
+    //TODO add message to queue
     @Override
     public void receiveConnect(int levelFragmentSender, Node senderNode) throws RemoteException {
 
@@ -160,6 +166,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         }
     }
 
+    //TODO add message to queue
     @Override
     public void receiveTest(int s_NN, int s_LN, int s_FN) {
         wakeUpNode();
@@ -260,6 +267,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     }
 
+    //TODO add messge to buffer
     @Override
     public void receiveReport(int s_NN, int w) {
 
@@ -296,8 +304,6 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         String url = this.node.getBestEdge().getUrl();
 
         if( this.node.getBestEdge().getEdgeState() == IN_MST) {
-
-
 
             try{
                 DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);

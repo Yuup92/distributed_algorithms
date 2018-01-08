@@ -117,7 +117,6 @@ public class Node implements Serializable{
             setNameFragment(this.nodeNumber);
         }
 
-
     }
 
     public boolean checkEdgesNotInMST() {

@@ -1,5 +1,9 @@
 package da.tudelft.ghs;
 
+import da.tudelft.bufferMessage.BufferMessage;
+import da.tudelft.bufferMessage.ConnectMessage;
+import da.tudelft.bufferMessage.ReportMessage;
+import da.tudelft.bufferMessage.TestMessage;
 import da.tudelft.datastructures.Edge;
 import da.tudelft.datastructures.Node;
 
@@ -20,8 +24,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private Node node;
     private int findCount;
 
-
-
+    private ArrayList<BufferMessage> bufferMessages;
 
     //Constant variables
     private final static int SLEEPING = 0;
@@ -32,14 +35,19 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private final static int UNKNOWN_MST = 0;  //?_MST
     private final static int IN_MST = 1;       //in_MST
 
+    private final static int CONNECT = 0;
+    private final static int REPORT = 1;
+    private final static int TEST = 2;
+
 
     public DA_Gallager_Humblet_Spira(int ID, String url) throws RemoteException{
         this.processID = ID;
         this._url = url;
 
         this.node = null;
-
         this.findCount = 0;
+
+        this.bufferMessages = new ArrayList<>();
     }
 
     public void addNode(Node node){
@@ -65,9 +73,11 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void sendConnect(String url, int levelFragment) {
 
+        ConnectMessage cM = new ConnectMessage(this.node.getNodeNumber(), this.node.getLevelFragement(), this.node);
+
         try{
             DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
-            receiver.receiveConnect(levelFragment, this.node);
+            receiver.receiveConnect(cM);
         } catch (RemoteException | NotBoundException | MalformedURLException e) {
             System.out.println("For process: " + processID + " an error occured sending CONNECT, error: " + e);
             e.printStackTrace();
@@ -76,10 +86,14 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     }
 
     //TODO add message to queue
+    //TODO add a way to read the buffer and check the buffer
     @Override
-    public void receiveConnect(int levelFragmentSender, Node senderNode) throws RemoteException {
+    public void receiveConnect(ConnectMessage cM) throws RemoteException {
 
         wakeUpNode();
+
+        Node senderNode = cM.getNode();
+        int levelFragmentSender = cM.getNodeLevel();
 
         Edge edge = this.node.getEdgeWithConnection(senderNode.getNodeNumber());
 
@@ -97,7 +111,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
         } else {
             if (edge.getEdgeState() == UNKNOWN_MST) {
-                //TODO add message to message queue
+                this.bufferMessages.add(cM);
             } else {
                 sendInitiate(edge.getUrl(), this.node.getLevelFragement(), this.node.getNameFragement(), FIND, this.node.getNodeNumber());
             }
@@ -153,9 +167,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         if( this.node.checkEdgesNotInMST()) {
             String url = this.node.getCurrentTestEdge().getUrl();
 
+            TestMessage tM = new TestMessage(this.node.getNodeNumber(),
+                                                this.node.getLevelFragement(),
+                                                this.node.getNameFragement());
+
             try{
                 DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
-                receiver.receiveTest(this.node.getNodeNumber(), this.node.getLevelFragement(), this.node.getNameFragement());
+                receiver.receiveTest(tM);
             } catch (RemoteException | NotBoundException | MalformedURLException e) {
                 System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
                 e.printStackTrace();
@@ -167,14 +185,21 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     }
 
     //TODO add message to queue
+    //TODO add a checkbufferfunction
     @Override
-    public void receiveTest(int s_NN, int s_LN, int s_FN) {
+    public void receiveTest(TestMessage tM) {
+
+        int s_NN = tM.getNodeNumber();
+        int s_LN = tM.getNodeLevel();
+        int s_FN = tM.getFragementName();
+
+
         wakeUpNode();
 
         Edge edge = this.node.getEdgeWithConnection(s_NN);
 
         if( s_LN > this.node.getLevelFragement() ) {
-            //TODO add message to message queue
+            this.bufferMessages.add(tM);
         } else {
             if(s_FN != this.node.getNameFragement()) {
 
@@ -248,11 +273,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         if( findCount == 0 && this.node.getCurrentTestEdge() == null ) {
             this.node.setNodeStateFOUND();
 
+            ReportMessage rM = new ReportMessage(this.node.getNodeNumber(), this.node.getBestEdge().getWeight());
+
             try {
                 String url = this.node.getInBranch().getUrl();
                 try{
                     DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
-                    receiver.receiveReport(this.node.getNodeNumber(), this.node.getBestEdge().getWeight());
+                    receiver.receiveReport(rM);
                 } catch (RemoteException | NotBoundException | MalformedURLException e) {
                     System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
                     e.printStackTrace();
@@ -269,8 +296,10 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     //TODO add messge to buffer
     @Override
-    public void receiveReport(int s_NN, int w) {
+    public void receiveReport(ReportMessage rM) {
 
+        int s_NN = rM.getNodeNumber();
+        int w = rM.getBestWeight();
 
         Edge edge = this.node.getEdgeWithConnection(s_NN);
 
@@ -283,7 +312,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         } else {
 
             if( this.node.getNodeState() == FIND) {
-                //TODO add message to buffer
+                System.out.println("Wtf man");
+                this.bufferMessages.add(rM);
             } else {
                 if( w > this.node.getBestEdge().getWeight()) {
                     sendChangeRoot();

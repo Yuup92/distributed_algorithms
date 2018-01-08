@@ -1,6 +1,10 @@
 package da.tudelft.ghs;
 
+import da.tudelft.bufferMessage.ConnectMessage;
+import da.tudelft.bufferMessage.ReportMessage;
+import da.tudelft.bufferMessage.TestMessage;
 import da.tudelft.datastructures.Node;
+import org.junit.Test;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -9,7 +13,7 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     public void sendConnect(String url, int levelFragment) throws RemoteException;
 
-    public void receiveConnect(int levelFragmentSender, Node senderNodex) throws RemoteException;
+    public void receiveConnect(ConnectMessage cM) throws RemoteException;
 
     public void sendInitiate(String url, int nodeLevel, int fragmentName, int nodeState, int nodeNumber) throws RemoteException;
 
@@ -17,7 +21,7 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     public void sendTest() throws RemoteException;
 
-    public void receiveTest(int s_NN, int s_LN, int s_FN) throws RemoteException;
+    public void receiveTest(TestMessage testMessage) throws RemoteException;
 
     public void receiveReject(int s_NN) throws RemoteException;
 
@@ -25,7 +29,7 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     public void sendReport() throws RemoteException;
 
-    public void receiveReport(int s_NN, int w) throws RemoteException;
+    public void receiveReport(ReportMessage reportMessage) throws RemoteException;
 
     public void sendChangeRoot() throws RemoteException;
 

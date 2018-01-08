@@ -6,6 +6,7 @@ import da.tudelft.bufferMessage.ReportMessage;
 import da.tudelft.bufferMessage.TestMessage;
 import da.tudelft.datastructures.Edge;
 import da.tudelft.datastructures.Node;
+import org.junit.Test;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -88,7 +89,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     //TODO add message to queue
     //TODO add a way to read the buffer and check the buffer
     @Override
-    public void receiveConnect(ConnectMessage cM) throws RemoteException {
+    public void receiveConnect(ConnectMessage cM)  {
 
         wakeUpNode();
 
@@ -116,6 +117,31 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
                 sendInitiate(edge.getUrl(), this.node.getLevelFragement(), this.node.getNameFragement(), FIND, this.node.getNodeNumber());
             }
         }
+
+    }
+
+    //TODO Make sure there is no an infinite loop for checking the buffer messages!!!
+    // Not sure how to do this yet.
+    public void checkBuffer(int messageType) {
+
+        if( this.bufferMessages.size() > 0 ){
+            for (int i = 0; i < this.bufferMessages.size(); i++) {
+
+                if(this.bufferMessages.get(i).getMessageType() == messageType) {
+
+                    if(messageType == CONNECT) {
+                        receiveConnect((ConnectMessage) this.bufferMessages.get(i));
+                    } else if (messageType == REPORT) {
+                        receiveReport((ReportMessage) this.bufferMessages.get(i));
+                    } else if (messageType == TEST) {
+                        receiveTest((TestMessage) this.bufferMessages.get(i));
+                    }
+                }
+            }
+        }
+
+
+
 
     }
 

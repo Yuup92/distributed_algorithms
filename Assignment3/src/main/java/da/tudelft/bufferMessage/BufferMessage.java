@@ -23,4 +23,8 @@ public class BufferMessage implements Serializable {
         return s_NN;
     }
 
+    public int getMessageType() {
+        return this.messageType;
+    }
+
 }

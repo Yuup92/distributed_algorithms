@@ -32,8 +32,9 @@ public class ProcessManager  {
      */
     private static final int NUMBEROFPROCESSES = 10;
     private static final String RMI_PREFIX = "rmi://";
-    private static final String RMI_LOCALHOST = "localhost/";
-    private static final String RMI_PROCESS = "process_";
+    private static final String RMI_LOCALHOST = "localhost";
+    private static final String RMI_PROCESS = "/process_";
+    private static final String IP = "192.168.1.42";
 
     private static final String RMI_REMOTE_IP = "";
 
@@ -47,7 +48,7 @@ public class ProcessManager  {
         String[] urls = new String[NUMBEROFPROCESSES];
 
         if(true) {
-            if(true){
+            if(false){
                 urls = useConfigurationFile();
             } else {
                 urls = connectToRemoteServer();
@@ -143,7 +144,15 @@ public class ProcessManager  {
 
     public String[] connectToRemoteServer(){
 
-        String[] urls = null;
+        String[] urls = new String[NUMBEROFPROCESSES];
+
+        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+            urls[i] = RMI_PREFIX + IP + RMI_PROCESS + i;
+        }
+
+        useLocalDistributedSystem(urls);
+
+
 
         return urls;
 

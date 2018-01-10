@@ -70,12 +70,10 @@
       <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="74" column="60" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+            <state relative-caret-position="414">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-                <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,8 +82,18 @@
       <file leaf-file-name="DA_Gallager_Humblet_Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+            <state relative-caret-position="408">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccessControlContext.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/security/AccessControlContext.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,7 +129,6 @@
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/DA_Gallager_Humblet_Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ProcessManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/edge.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/BufferMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/TestMessage.java" />
@@ -133,8 +140,9 @@
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java" />
-        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java" />
       </list>
     </option>
   </component>
@@ -321,28 +329,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DA_Gallager_Humblet_Main (1)">
+  <component name="RunManager" selected="Application.DA_Gallager_Humblet_Main">
     <configuration default="false" name="DA_Gallager_Humblet_Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="da.tudelft.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="da.tudelft.DA_Gallager_Humblet_Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="Assignment3" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="DA_Gallager_Humblet_Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="da.tudelft.ghs.*" />
@@ -350,9 +338,9 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="da.tudelft.ghs.DA_Gallager_Humblet_Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="-Djava.rmi.server.codebase=file:/$PROJECT_DIR$/src -Djava.rmi.server.hostname=192.168.1.42 -Djava.security.policy=server.policy" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -607,14 +595,12 @@
       <listeners />
       <method />
     </configuration>
-    <list size="2">
+    <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.DA_Gallager_Humblet_Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.DA_Gallager_Humblet_Main (1)" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.DA_Gallager_Humblet_Main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.DA_Gallager_Humblet_Main" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.DA_Gallager_Humblet_Main" />
       </list>
     </recent_temporary>
   </component>
@@ -640,14 +626,14 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2150924" sideWeight="0.4968102" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21492206" sideWeight="0.4968102" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60723513" sideWeight="0.14619565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4075724" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4075724" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3062361" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3062361" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13752665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -717,24 +703,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addLink#0;class#Node#0" expanded="false" />
-            <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
-            <element signature="method#showConnection#0;class#Node#0" expanded="false" />
-            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="method#findNameFragment#0;class#Node#0" expanded="false" />
-            <element signature="method#setInBranch#0;class#Node#0" expanded="false" />
-            <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
-            <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -785,8 +753,6 @@
           <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,8 +833,6 @@
           <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -923,8 +887,6 @@
           <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -980,8 +942,6 @@
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1028,8 +988,6 @@
           <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1192,14 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1236,14 +1186,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/security/AccessControlContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="74" column="60" selection-start-line="74" selection-start-column="60" selection-end-line="74" selection-end-column="60" />
+        <state relative-caret-position="414">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

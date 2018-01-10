@@ -30,7 +30,7 @@ public class ProcessManager  {
      * Static and constant variables defined below,
      * these values should not need to change.
      */
-    private static final int NUMBEROFPROCESSES = 10;
+    private static final int NUMBEROFPROCESSES = 5;
     private static final String RMI_PREFIX = "rmi://";
     private static final String RMI_LOCALHOST = "localhost/";
     private static final String RMI_PROCESS = "process_";
@@ -39,7 +39,7 @@ public class ProcessManager  {
 
 
     public ProcessManager() {
-
+        this.procList = new ArrayList<>();
     }
 
     public void startNetwork() {
@@ -59,6 +59,13 @@ public class ProcessManager  {
 
         this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
+        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+            procList.get(i).addNode(nodeList.get(i));
+        }
+
+        procList.get(3).wakeUp();
+
+
     }
 
     public String[] useLocalDistributedSystem(){
@@ -75,6 +82,7 @@ public class ProcessManager  {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
                 Naming.bind(urls[i], process);
+                procList.add(process);
             }
         } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
             System.out.println("Processes did not want to start, error: " + e);
@@ -126,8 +134,5 @@ public class ProcessManager  {
         return urls;
 
     }
-
-
-
 
 }

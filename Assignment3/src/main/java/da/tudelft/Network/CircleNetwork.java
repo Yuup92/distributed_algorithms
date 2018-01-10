@@ -25,7 +25,7 @@ public class CircleNetwork {
 
             //This generates random weights for the network if true otherwise the
             // weights for the network will go from [1,(Node Amount + 1)]
-            if(true) {
+            if(false) {
                 int v = rnd.nextInt(weightList.size());
                 weight = weightList.get(v);
                 weightList.remove(v);

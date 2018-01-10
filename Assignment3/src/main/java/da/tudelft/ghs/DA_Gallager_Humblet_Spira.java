@@ -44,7 +44,6 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private final static boolean ONLY_SHOW_INBRANCH = true;
     private final static boolean BUFFER_CHECK_THREAD = true;
 
-
     public DA_Gallager_Humblet_Spira(int ID, String url) throws RemoteException{
         this.processID = ID;
         this._url = url;
@@ -428,11 +427,20 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void sendMessage(String url, String message) {
 
+        try{
+            DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+            receiver.receive(message);
+        } catch (RemoteException | NotBoundException | MalformedURLException e) {
+            System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void receive(String message) {
-        System.out.println();
+        int n = processID + 1;
+        System.out.println(n + " has received a message: " + message);
     }
 
     public void checkBuffer(int type, boolean print) {

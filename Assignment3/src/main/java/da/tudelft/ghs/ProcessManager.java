@@ -46,36 +46,47 @@ public class ProcessManager  {
 
         String[] urls = new String[NUMBEROFPROCESSES];
 
-        if(false) {
-            if(false){
+        if(true) {
+            if(true){
                 urls = useConfigurationFile();
             } else {
                 urls = connectToRemoteServer();
             }
 
         } else {
-           urls = useLocalDistributedSystem();
+           urls = useLocalDistributedSystem(urls);
+
+
+            procList.get(3).wakeUp();
         }
 
-        this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            procList.get(i).addNode(nodeList.get(i));
-        }
+        //this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
-        procList.get(3).wakeUp();
+//        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+//            procList.get(i).addNode(nodeList.get(i));
+//        }
+
+        procList.get(3).sendMessage(urls[2], " This is " + urls[3] + " checking in!");
 
 
     }
 
-    public String[] useLocalDistributedSystem(){
+    public String[] useLocalDistributedSystem(String[] urls){
 
         DA_Gallager_Humblet_Spira process;
-        String[] urls = new String[NUMBEROFPROCESSES];
 
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
+        //TODO Remember to remove this
+        if(false){
+            //String[] urls = new String[NUMBEROFPROCESSES];
+//
+//            for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+//                urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
+//            }
         }
+
+
+
 
         try {
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
@@ -99,7 +110,7 @@ public class ProcessManager  {
         try{
             config = new PropertiesConfiguration("network.cfg");
         } catch (ConfigurationException e) {
-
+            e.printStackTrace();
         }
 
         try {
@@ -110,12 +121,15 @@ public class ProcessManager  {
 
         System.out.println(inetAddress.getHostAddress());
 
+
+
         String[] urls = null;
 
         if(config != null){
             urls = config.getStringArray("node.url");
         }
 
+        useLocalDistributedSystem(urls);
 
         int i = 1;
         for (String url : urls) {

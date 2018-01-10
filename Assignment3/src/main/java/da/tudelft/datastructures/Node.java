@@ -149,7 +149,7 @@ public class Node implements Serializable{
             }
         }
 
-        System.out.println(this.nodeNumber + " has an inbranch");
+        System.out.println(this.nodeNumber + " has an inbranch. The branch node is: " + this.inBranch.getLinkToNode());
 
     }
 

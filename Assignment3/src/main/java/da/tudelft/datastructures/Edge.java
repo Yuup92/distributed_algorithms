@@ -50,6 +50,18 @@ public class Edge implements Serializable {
         return this.edgeState;
     }
 
+    public String getEdgeStateString() {
+        if(edgeState == NOT_IN_MST) {
+            return "NOT_IN_MST";
+        } else if (edgeState == UNKNOWN_MST) {
+            return "?_MST";
+        } else if (edgeState == IN_MST) {
+            return "IN_MST";
+        } else {
+            return "ERROR, state was changed to invalid input: " + edgeState;
+        }
+    }
+
     public int getLinkToNode() {
         return this.linkToNode;
     }

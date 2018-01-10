@@ -113,35 +113,13 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         } else {
             if (edge.getEdgeState() == UNKNOWN_MST) {
                 this.bufferMessages.add(cM);
+                return;
             } else {
                 sendInitiate(edge.getUrl(), this.node.getLevelFragement(), this.node.getNameFragement(), FIND, this.node.getNodeNumber());
             }
         }
 
-    }
-
-    //TODO Make sure there is no an infinite loop for checking the buffer messages!!!
-    // Not sure how to do this yet.
-    public void checkBuffer(int messageType) {
-
-        if( this.bufferMessages.size() > 0 ){
-            for (int i = 0; i < this.bufferMessages.size(); i++) {
-
-                if(this.bufferMessages.get(i).getMessageType() == messageType) {
-
-                    if(messageType == CONNECT) {
-                        receiveConnect((ConnectMessage) this.bufferMessages.get(i));
-                    } else if (messageType == REPORT) {
-                        receiveReport((ReportMessage) this.bufferMessages.get(i));
-                    } else if (messageType == TEST) {
-                        receiveTest((TestMessage) this.bufferMessages.get(i));
-                    }
-                }
-            }
-        }
-
-
-
+        checkBuffer(CONNECT);
 
     }
 
@@ -226,6 +204,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if( s_LN > this.node.getLevelFragement() ) {
             this.bufferMessages.add(tM);
+            return;
         } else {
             if(s_FN != this.node.getNameFragement()) {
 
@@ -266,6 +245,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
             }
         }
+
+        checkBuffer(TEST);
     }
 
     @Override
@@ -340,6 +321,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             if( this.node.getNodeState() == FIND) {
                 System.out.println("Wtf man");
                 this.bufferMessages.add(rM);
+                return;
             } else {
                 if( w > this.node.getBestEdge().getWeight()) {
                     sendChangeRoot();
@@ -351,7 +333,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
 
         }
-
+        checkBuffer(REPORT);
     }
 
     @Override
@@ -393,6 +375,27 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         System.out.println();
     }
 
+    public void checkBuffer(int type) {
+
+        BufferMessage bM;
+
+        System.out.println("Size of buffer for node: " + this.processID + " has size: " + bufferMessages.size());
+
+        for (int i = 0; i < this.bufferMessages.size(); i++) {
+            bM = this.bufferMessages.get(i);
+            this.bufferMessages.remove(i);
+            if(bM.getMessageType() == CONNECT) {
+                receiveConnect((ConnectMessage) bM);
+            } else if(bM.getMessageType() == REPORT) {
+                receiveReport((ReportMessage) bM);
+            } else if(bM.getMessageType() == TEST) {
+                receiveTest((TestMessage) bM);
+            }
+
+        }
+
+
+    }
 
     public void run() {
 
@@ -413,6 +416,6 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         System.out.println("This node: " + node.getNodeNumber() +
                 "\n best edge is linked to: " + edge.getLinkToNode() +
                 "\n the weight is: " + edge.getWeight() +
-                "\n the state of the edge is: " + edge.getEdgeState());
+                "\n the state of the edge is: " + edge.getEdgeStateString());
     }
 }

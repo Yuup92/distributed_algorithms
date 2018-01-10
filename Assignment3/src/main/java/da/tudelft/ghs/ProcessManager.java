@@ -63,7 +63,7 @@ public class ProcessManager  {
             procList.get(i).addNode(nodeList.get(i));
         }
 
-        procList.get(1).wakeUp();
+        procList.get(3).wakeUp();
 
 
     }

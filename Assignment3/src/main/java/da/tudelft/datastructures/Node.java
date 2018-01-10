@@ -20,7 +20,7 @@ public class Node implements Serializable{
     private int numberReportMessages;
     private int findCount;
 
-    private Edge inBranch = null;
+    private Edge inBranch;
     private Edge coreEdge = null;
     private Edge bestEdge = null;
     private Edge currentTestEdge= null;
@@ -38,6 +38,8 @@ public class Node implements Serializable{
 
         this.nodeState = SLEEPING;
         this.levelFragement = -1;
+
+        this.inBranch = null;
     }
 
     /**
@@ -145,10 +147,11 @@ public class Node implements Serializable{
         for (int i = 0; i < this.nodeEdges.size(); i++) {
             if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
                 this.inBranch = this.nodeEdges.get(i);
+                System.out.println(this.nodeNumber + " Node: has an IN-BRANCH. The branch node is: " + this.inBranch.getLinkToNode());
             }
         }
 
-        System.out.println(this.nodeNumber + " Node: has an IN-BRANCHgit . The branch node is: " + this.inBranch.getLinkToNode());
+
 
     }
 
@@ -236,6 +239,11 @@ public class Node implements Serializable{
     }
 
     public Edge getBestEdge() {
+
+        if(bestEdge == null) {
+            updateBestMOE();
+        }
+
         return this.bestEdge;
     }
 

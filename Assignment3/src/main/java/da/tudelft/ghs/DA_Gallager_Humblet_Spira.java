@@ -56,6 +56,9 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     }
 
     public void wakeUp() {
+
+        System.out.println(this.processID + " Node: has received WAKEUP");
+
         Edge edge = this.node.getBestEdge();
         edge.setEdgeStateINMST();
 
@@ -64,7 +67,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         this.node.setFindCount(0);
 
         //This function system.out's
-        wakeUpMessage(edge);
+        //wakeUpMessage(edge);
 
 
 
@@ -90,7 +93,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     //TODO add a way to read the buffer and check the buffer
     @Override
     public void receiveConnect(ConnectMessage cM)  {
-        System.out.println(processID + " Node: has received a CONNECT message from node: " + cM.getNode().getNodeNumber());
+        System.out.println(processID + " Node: has received CONNECT message from node: " + cM.getNode().getNodeNumber());
 
         wakeUpNode();
 
@@ -141,8 +144,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
     @Override
     public void receiveInitiate(int s_nodeLevel, int s_fragmentName, int s_nodeState, int s_nodeNumber) throws RemoteException {
-        System.out.println(processID + " Node: has received an INITIATE from node: " + s_nodeNumber);
-        //System.out.println("Received an Initiate at process: " + processID);
+        System.out.println(processID + " Node: has received a INITIATE message from node: " + s_nodeNumber);
 
         this.node.setLevelFragment(s_nodeLevel);
         this.node.setNameFragment(s_fragmentName);
@@ -156,7 +158,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         for (int i = 0; i < listEdges.size() ; i++) {
             Edge edge = listEdges.get(i);
             if(edge.getLinkToNode() != s_nodeNumber && edge.getEdgeState() == IN_MST) {
-
+                System.out.println();
                 sendInitiate(edge.getUrl(), s_nodeLevel, s_fragmentName, s_nodeState, this.node.getNodeNumber());
             }
             if(this.node.getNodeState() == FIND) {
@@ -196,7 +198,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveTest(TestMessage tM) {
 
-        System.out.println(processID + " Node: has received an TEST from node: " + tM.getNodeNumber());
+        System.out.println(processID + " Node: has received TEST message from node: " + tM.getNodeNumber());
 
         int s_NN = tM.getNodeNumber();
         int s_LN = tM.getNodeLevel();
@@ -208,6 +210,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         Edge edge = this.node.getEdgeWithConnection(s_NN);
 
         if( s_LN > this.node.getLevelFragement() ) {
+            System.out.println(processID + " Node: is adding a message to the buffer from RECEIVETEST");
             this.bufferMessages.add(tM);
             return;
         } else {
@@ -257,7 +260,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveAccept(int s_NN) {
 
-        System.out.println(processID + " Node: has received an ACCEPT from node: " + s_NN);
+        System.out.println(processID + " Node: has received ACCEPT message from node: " + s_NN);
 
         Edge edge = this.node.getEdgeWithConnection(s_NN);
 
@@ -272,7 +275,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveReject(int s_NN) {
 
-        System.out.println(processID + " Node: has received an REJECT from node: " + s_NN);
+        System.out.println(processID + " Node: has received REJECT message from node: " + s_NN);
 
         Edge edge = this.node.getEdgeWithConnection(s_NN);
 
@@ -285,7 +288,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void sendReport() {
 
-
+        String url = this.node.getInBranch().getUrl();
         if( findCount == 0 && this.node.getCurrentTestEdge() == null ) {
             this.node.setNodeStateFOUND();
 
@@ -295,26 +298,17 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
             ReportMessage rM = new ReportMessage(this.node.getNodeNumber(), this.node.getBestEdge().getWeight());
 
-            try {
-                String url = this.node.getInBranch().getUrl();
-                try{
-                    DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
-                    receiver.receiveReport(rM);
-                } catch (RemoteException | NotBoundException | MalformedURLException e) {
-                    System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
-                    e.printStackTrace();
-                }
-            } catch (NullPointerException e) {
-                System.out.println(this.node.getNodeNumber() + " node tried to send to an inbranch but it was null");
+            try{
+                DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
+                receiver.receiveReport(rM);
+            } catch (RemoteException | NotBoundException | MalformedURLException e) {
+                System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+                e.printStackTrace();
             }
-
-
-
         }
 
     }
 
-    //TODO add messge to buffer
     @Override
     public void receiveReport(ReportMessage rM) {
 
@@ -334,7 +328,6 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         } else {
 
             if( this.node.getNodeState() == FIND) {
-                System.out.println("Wtf man");
                 this.bufferMessages.add(rM);
                 return;
             } else {
@@ -380,7 +373,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     @Override
     public void receiveChangeRoot(int s_NN) {
 
-        System.out.println(processID + " Node: has received an CHANGEROOT from node: " + s_NN);
+        System.out.println(processID + " Node: has received CHANGEROOT message from node: " + s_NN);
 
         sendChangeRoot();
     }
@@ -391,13 +384,16 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     }
 
     @Override
-    public synchronized void receive(String message) {
+    public void receive(String message) {
         System.out.println();
     }
 
     public void checkBuffer(int type) {
 
-        System.out.println(processID + " Node: BUFFER SIZE is currently: " + bufferMessages.size());
+        System.out.println(processID + " Node: BUFFER SIZE is currently: " +
+                            bufferMessages.size() +
+                            " and was checked in function: " +
+                            messageTypeToString(type));
 
         BufferMessage bM;
 
@@ -439,5 +435,17 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
                 "\n best edge is linked to: " + edge.getLinkToNode() +
                 "\n the weight is: " + edge.getWeight() +
                 "\n the state of the edge is: " + edge.getEdgeStateString());
+    }
+
+    public String messageTypeToString(int messageType) {
+        if(messageType == CONNECT) {
+            return "CONNECT";
+        } else if(messageType == TEST) {
+            return "TEST";
+        } else if(messageType == REPORT) {
+            return "REPORT";
+        } else {
+            return "WEIRD INPUT GIVEN TO MESSAGE";
+        }
     }
 }

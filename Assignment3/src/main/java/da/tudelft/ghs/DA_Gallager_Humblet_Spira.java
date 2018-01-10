@@ -1,12 +1,8 @@
 package da.tudelft.ghs;
 
-import da.tudelft.bufferMessage.BufferMessage;
-import da.tudelft.bufferMessage.ConnectMessage;
-import da.tudelft.bufferMessage.ReportMessage;
-import da.tudelft.bufferMessage.TestMessage;
+import da.tudelft.bufferMessage.*;
 import da.tudelft.datastructures.Edge;
 import da.tudelft.datastructures.Node;
-import org.junit.Test;
 
 import java.io.Serializable;
 import java.net.MalformedURLException;
@@ -40,6 +36,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private final static int REPORT = 1;
     private final static int TEST = 2;
 
+    private final static boolean PRINT_BUFFER = false;
+
 
     public DA_Gallager_Humblet_Spira(int ID, String url) throws RemoteException{
         this.processID = ID;
@@ -65,6 +63,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         this.node.setLevelFragment(0);
         this.node.setNodeStateFOUND();
         this.node.setFindCount(0);
+
+        new Thread(new BufferChecker(this)).start();
 
         //This function system.out's
         //wakeUpMessage(edge);
@@ -126,7 +126,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
         }
 
-        checkBuffer(CONNECT);
+        checkBuffer(CONNECT, PRINT_BUFFER);
 
     }
 
@@ -216,7 +216,6 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         } else {
             if(s_FN != this.node.getNameFragement()) {
 
-                // This may not be right
                 String url = edge.getUrl();
 
                 try{
@@ -254,7 +253,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
         }
 
-        checkBuffer(TEST);
+        checkBuffer(TEST, PRINT_BUFFER);
     }
 
     @Override
@@ -342,7 +341,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             }
 
         }
-        checkBuffer(REPORT);
+        checkBuffer(REPORT, PRINT_BUFFER);
     }
 
     @Override
@@ -388,12 +387,15 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         System.out.println();
     }
 
-    public void checkBuffer(int type) {
+    public void checkBuffer(int type, boolean print) {
 
-        System.out.println(processID + " Node: BUFFER SIZE is currently: " +
-                            bufferMessages.size() +
-                            " and was checked in function: " +
-                            messageTypeToString(type));
+        if(print) {
+            System.out.println(processID + " Node: BUFFER SIZE is currently: " +
+                    bufferMessages.size() +
+                    " and was checked in function: " +
+                    messageTypeToString(type));
+        }
+
 
         BufferMessage bM;
 

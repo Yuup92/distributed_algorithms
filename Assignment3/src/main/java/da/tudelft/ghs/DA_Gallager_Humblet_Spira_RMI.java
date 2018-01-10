@@ -33,7 +33,7 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     public void sendChangeRoot() throws RemoteException;
 
-    public void receiveChangeRoot() throws RemoteException;
+    public void receiveChangeRoot(int s_NN) throws RemoteException;
 
     public void sendMessage(String url, String message) throws RemoteException;
 

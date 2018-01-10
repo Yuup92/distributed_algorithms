@@ -106,7 +106,6 @@ public class Node implements Serializable{
 
     public void resetBestEdge() {
         this.bestEdge = null;
-
     }
 
     public void findNameFragment(Node node) {
@@ -149,7 +148,7 @@ public class Node implements Serializable{
             }
         }
 
-        System.out.println(this.nodeNumber + " has an inbranch. The branch node is: " + this.inBranch.getLinkToNode());
+        System.out.println(this.nodeNumber + " Node: has an IN-BRANCHgit . The branch node is: " + this.inBranch.getLinkToNode());
 
     }
 

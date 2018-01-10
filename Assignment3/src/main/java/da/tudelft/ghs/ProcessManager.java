@@ -30,7 +30,7 @@ public class ProcessManager  {
      * Static and constant variables defined below,
      * these values should not need to change.
      */
-    private static final int NUMBEROFPROCESSES = 5;
+    private static final int NUMBEROFPROCESSES = 10;
     private static final String RMI_PREFIX = "rmi://";
     private static final String RMI_LOCALHOST = "localhost/";
     private static final String RMI_PROCESS = "process_";

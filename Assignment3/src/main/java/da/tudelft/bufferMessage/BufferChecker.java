@@ -15,7 +15,7 @@ public class BufferChecker implements Runnable {
 
     public void run() {
     try {
-        for (int i = 0; i < 5; i++) {
+        while(true){
             Thread.sleep(1000);
             this.p.checkBuffer(0, false);
             this.p.checkBuffer(1, false);

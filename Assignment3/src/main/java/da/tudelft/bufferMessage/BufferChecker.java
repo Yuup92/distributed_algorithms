@@ -14,16 +14,27 @@ public class BufferChecker implements Runnable {
     }
 
     public void run() {
-    try {
-        while(true){
-            Thread.sleep(1000);
-            this.p.checkBuffer(0, false);
-            this.p.checkBuffer(1, false);
-            this.p.checkBuffer(2, false);
+
+        int i = 0;
+
+
+        try {
+            while(true){
+                Thread.sleep(100);
+                this.p.checkBuffer(0, false);
+                this.p.checkBuffer(1, false);
+                this.p.checkBuffer(2, false);
+//                if(i > 3) {
+//                    i = 0;
+//                    this.p.printStatus();
+//                }
+                i++;
+
+
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
 
 
     }

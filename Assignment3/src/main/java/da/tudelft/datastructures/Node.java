@@ -20,7 +20,8 @@ public class Node implements Serializable{
     private int numberReportMessages;
     private int findCount;
 
-    private Edge inBranch;
+    private int inBranch;
+    private int bestWeight;
     private Edge coreEdge = null;
     private Edge bestEdge = null;
     private Edge currentTestEdge= null;
@@ -37,9 +38,8 @@ public class Node implements Serializable{
         this.nodeEdges = new ArrayList<>();
 
         this.nodeState = SLEEPING;
-        this.levelFragement = -1;
+        this.nameFragement = nodeNumber;
 
-        this.inBranch = null;
     }
 
     /**
@@ -90,16 +90,16 @@ public class Node implements Serializable{
 
     public void updateBestMOE() {
 
-        int bestWeight = (this.bestEdge != null) ? this.bestEdge.getWeight() : Integer.MAX_VALUE;
+        int bestW = (this.bestEdge != null) ? this.bestEdge.getWeight() : Integer.MAX_VALUE;
 
         Edge testEdge;
 
         for (int i = 0; i < nodeEdges.size(); i++) {
             testEdge = this.nodeEdges.get(i);
             if(this.bestEdge == null || this.bestEdge.getLinkToNode() != testEdge.getLinkToNode() ) {
-                if(bestWeight > testEdge.getWeight()) {
+                if(bestW > testEdge.getWeight()) {
                     this.bestEdge = testEdge;
-                    bestWeight = testEdge.getWeight();
+                    this.bestWeight = testEdge.getWeight();
                 }
             }
         }
@@ -128,6 +128,7 @@ public class Node implements Serializable{
 
         for (int i = 0; i < this.nodeEdges.size() ; i++) {
             if( this.nodeEdges.get(i).isUnkownInMST() && bestWeight > this.nodeEdges.get(i).getWeight()) {
+                bestWeight = this.nodeEdges.get(i).getWeight();
                 this.currentTestEdge = this.nodeEdges.get(i);
                 test = true;
             }
@@ -142,14 +143,16 @@ public class Node implements Serializable{
 
     public void setInBranch(int nodeNumber) {
 
+        this.inBranch = nodeNumber;
 
 
-        for (int i = 0; i < this.nodeEdges.size(); i++) {
-            if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
-                this.inBranch = this.nodeEdges.get(i);
-                System.out.println(this.nodeNumber + " Node: has an IN-BRANCH. The branch node is: " + this.inBranch.getLinkToNode());
-            }
-        }
+
+//        for (int i = 0; i < this.nodeEdges.size(); i++) {
+//            if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
+//                this.inBranch = this.nodeEdges.get(i);
+//                System.out.println(this.nodeNumber + " Node: has an IN-BRANCH. The branch node is: " + this.inBranch.getLinkToNode());
+//            }
+//        }
 
 
 
@@ -189,6 +192,10 @@ public class Node implements Serializable{
 
     public void setBestEdge(Edge edge) {
         this.bestEdge = edge;
+    }
+
+    public void setBestWeight(int w) {
+        this.bestWeight = w;
     }
 
     /**
@@ -231,6 +238,14 @@ public class Node implements Serializable{
     }
 
     public Edge getCurrentTestEdge() {
+        if(currentTestEdge == null) {
+            checkEdgesNotInMST();
+            if(currentTestEdge == null) {
+                System.out.println(nodeNumber + " Node: Cannot find a test edge.....");
+            }
+        }
+
+
         return this.currentTestEdge;
     }
 
@@ -240,9 +255,9 @@ public class Node implements Serializable{
 
     public Edge getBestEdge() {
 
-        if(bestEdge == null) {
-            updateBestMOE();
-        }
+//        if(bestEdge == null) {
+//            updateBestMOE();
+//        }
 
         return this.bestEdge;
     }
@@ -257,7 +272,23 @@ public class Node implements Serializable{
         return null;
     }
 
-    public Edge getInBranch() {
+    public int getInBranch() {
         return this.inBranch;
+    }
+
+    public String getUrlEdgeInMST(){
+        String url = "";
+
+        for (int i = 0; i < this.nodeEdges.size(); i++) {
+           if(this.nodeEdges.get(i).getEdgeState() == 1) {
+               url = this.nodeEdges.get(i).getUrl();
+           }
+        }
+
+        return url;
+    }
+
+    public int getBestWeight() {
+        return this.bestWeight;
     }
 }

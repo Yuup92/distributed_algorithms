@@ -25,7 +25,7 @@ public class CircleNetwork {
 
             //This generates random weights for the network if true otherwise the
             // weights for the network will go from [1,(Node Amount + 1)]
-            if(true) {
+            if(false) {
                 int v = rnd.nextInt(weightList.size());
                 weight = weightList.get(v);
                 weightList.remove(v);
@@ -71,6 +71,8 @@ public class CircleNetwork {
         for (int i = 0; i < procAmount; i++) {
             wL.add( (i+1) );
         }
+
+        System.out.println("Edge amounts: " + procAmount + " list: " + wL.toString());
 
         return wL;
     }

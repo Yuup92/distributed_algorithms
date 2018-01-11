@@ -20,7 +20,7 @@ public class Node implements Serializable{
     private int numberReportMessages;
     private int findCount;
 
-    private Edge inBranch;
+    private int inBranch;
     private Edge coreEdge = null;
     private Edge bestEdge = null;
     private Edge currentTestEdge= null;
@@ -39,7 +39,6 @@ public class Node implements Serializable{
         this.nodeState = SLEEPING;
         this.nameFragement = nodeNumber;
 
-        this.inBranch = null;
     }
 
     /**
@@ -143,14 +142,16 @@ public class Node implements Serializable{
 
     public void setInBranch(int nodeNumber) {
 
+        this.inBranch = nodeNumber;
 
 
-        for (int i = 0; i < this.nodeEdges.size(); i++) {
-            if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
-                this.inBranch = this.nodeEdges.get(i);
-                System.out.println(this.nodeNumber + " Node: has an IN-BRANCH. The branch node is: " + this.inBranch.getLinkToNode());
-            }
-        }
+
+//        for (int i = 0; i < this.nodeEdges.size(); i++) {
+//            if(this.nodeEdges.get(i).getLinkToNode() == nodeNumber) {
+//                this.inBranch = this.nodeEdges.get(i);
+//                System.out.println(this.nodeNumber + " Node: has an IN-BRANCH. The branch node is: " + this.inBranch.getLinkToNode());
+//            }
+//        }
 
 
 
@@ -266,7 +267,19 @@ public class Node implements Serializable{
         return null;
     }
 
-    public Edge getInBranch() {
+    public int getInBranch() {
         return this.inBranch;
+    }
+
+    public String getUrlEdgeInMST(){
+        String url = "";
+
+        for (int i = 0; i < this.nodeEdges.size(); i++) {
+           if(this.nodeEdges.get(i).getEdgeState() == 1) {
+               url = this.nodeEdges.get(i).getUrl();
+           }
+        }
+
+        return url;
     }
 }

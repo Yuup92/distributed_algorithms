@@ -1,4 +1,4 @@
-grant {
+grant codebase "file:/J:/Programming/distributed_algorithms/Assignment3/src/" {
 	permission java.security.AllPermission;
 	permission java.util.PropertyPermission "*", "read,write";
     permission java.net.SocketPermission "localhost:1099", "connect, resolve";

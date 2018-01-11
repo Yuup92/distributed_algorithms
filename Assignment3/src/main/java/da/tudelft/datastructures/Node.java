@@ -37,7 +37,7 @@ public class Node implements Serializable{
         this.nodeEdges = new ArrayList<>();
 
         this.nodeState = SLEEPING;
-        this.levelFragement = -1;
+        this.nameFragement = nodeNumber;
 
         this.inBranch = null;
     }
@@ -128,6 +128,7 @@ public class Node implements Serializable{
 
         for (int i = 0; i < this.nodeEdges.size() ; i++) {
             if( this.nodeEdges.get(i).isUnkownInMST() && bestWeight > this.nodeEdges.get(i).getWeight()) {
+                bestWeight = this.nodeEdges.get(i).getWeight();
                 this.currentTestEdge = this.nodeEdges.get(i);
                 test = true;
             }
@@ -231,6 +232,14 @@ public class Node implements Serializable{
     }
 
     public Edge getCurrentTestEdge() {
+        if(currentTestEdge == null) {
+            checkEdgesNotInMST();
+            if(currentTestEdge == null) {
+                System.out.println(nodeNumber + " Node: Cannot find a test edge.....");
+            }
+        }
+
+
         return this.currentTestEdge;
     }
 
@@ -240,9 +249,9 @@ public class Node implements Serializable{
 
     public Edge getBestEdge() {
 
-        if(bestEdge == null) {
-            updateBestMOE();
-        }
+//        if(bestEdge == null) {
+//            updateBestMOE();
+//        }
 
         return this.bestEdge;
     }

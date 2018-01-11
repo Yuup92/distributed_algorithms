@@ -72,6 +72,8 @@ public class CircleNetwork {
             wL.add( (i+1) );
         }
 
+        System.out.println("Edge amounts: " + procAmount + " list: " + wL.toString());
+
         return wL;
     }
 }

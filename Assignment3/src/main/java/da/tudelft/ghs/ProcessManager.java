@@ -1,6 +1,7 @@
 package da.tudelft.ghs;
 
 import da.tudelft.Network.CircleNetwork;
+import da.tudelft.Network.FullNetwork;
 import da.tudelft.datastructures.Node;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
@@ -14,6 +15,7 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class ProcessManager  {
@@ -50,7 +52,7 @@ public class ProcessManager  {
 
         String[] urls = new String[NUMBEROFPROCESSES];
 
-        if(true) {
+        if(false) {
             if(true){
                 // Starts Server
                 urls = useConfigurationFile();
@@ -61,39 +63,37 @@ public class ProcessManager  {
         } else {
            urls = useLocalDistributedSystem(urls);
 
-
-            procList.get(3).wakeUp();
         }
 
+        //this.nodeList = new FullNetwork().createFullNetwork(NUMBEROFPROCESSES, urls);
+        this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
 
-        //this.nodeList = new CircleNetwork().createCircularNetwork(NUMBEROFPROCESSES, urls);
+        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+            procList.get(i).addNode(nodeList.get(i));
+        }
 
-//        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-//            procList.get(i).addNode(nodeList.get(i));
-//        }
+        procList.get(3).wakeUp();
 
-        procList.get(3).sendMessage(urls[2], " This is " + urls[3] + " checking in!");
+        //procList.get(3).sendMessage(urls[2], " This is " + urls[3] + " checking in!");
 
 
     }
 
-    public String[] useLocalDistributedSystem(String[] urls){
+    public String[] useLocalDistributedSystem(String[] url){
 
         DA_Gallager_Humblet_Spira process;
 
         //TODO Remember to remove this
-        if(false){
-            //String[] urls = new String[NUMBEROFPROCESSES];
-//
-//            for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-//                urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
-//            }
-        }
+       // if(true){
+            String[] urls = new String[NUMBEROFPROCESSES];
 
-
-
+            for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+                urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
+            }
+        //}
 
         try {
+            LocateRegistry.createRegistry(1099);
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
@@ -116,12 +116,12 @@ public class ProcessManager  {
         /**
          * Starts a registry on port 1099
          */
-        try {
-            LocateRegistry.createRegistry(1099);
-        } catch (RemoteException e) {
-            System.out.println("Could not create a registry on port 1099, error "  + e);
-            e.printStackTrace();
-        }
+//        try {
+//            LocateRegistry.createRegistry(1099);
+//        } catch (RemoteException e) {
+//            System.out.println("Could not create a registry on port 1099, error "  + e);
+//            e.printStackTrace();
+//        }
 
         /**
          * System.setProperty() needs to be run before System.getSecurityManager()
@@ -157,13 +157,17 @@ public class ProcessManager  {
 //            urls = config.getStringArray("node.url");
 //        }
         try {
+            Registry reg = LocateRegistry.createRegistry(1099);
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
+                //DA_Gallager_Humblet_Spira stub = (DA_Gallager_Humblet_Spira) UnicastRemoteObject.exportObject(process, i);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
-                Naming.bind(urls[i], process);
+                String p = "process" + i;
+                reg.rebind(p, process);
+                //Naming.bind(urls[i], process);
                 procList.add(process);
             }
-        } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
+        } catch (RemoteException e) {
             System.out.println("Processes did not want to start, error: " + e);
             e.printStackTrace();
         }
@@ -182,7 +186,7 @@ public class ProcessManager  {
 
         //VM parameters: -Djava.security.policy=file:./java.policy
 
-        String[] urls;
+        String[] urls = new String[NUMBEROFPROCESSES];
 
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager());

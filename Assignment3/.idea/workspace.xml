@@ -11,6 +11,11 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Assignment3$DA_Gallager_Humblet_Main__1_.coverage" NAME="DA_Gallager_Humblet_Main (1) Coverage Results" MODIFIED="1515620843205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>da.tudelft.ghs.*</FILTER>
+    </SUITE>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -19,13 +24,13 @@
     <favorites_list name="Assignment3" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.59826946">
+    <splitter split-orientation="horizontal" split-proportion="0.56736714">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
           <file leaf-file-name="DA_Gallager_Humblet_Spira_RMI.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
+                <state relative-caret-position="493">
                   <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
                   <folding />
                 </state>
@@ -35,20 +40,21 @@
           <file leaf-file-name="DA_Gallager_Humblet_Spira.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="212" column="101" selection-start-line="212" selection-start-column="101" selection-end-line="212" selection-end-column="101" />
+                <state relative-caret-position="580">
+                  <caret line="505" column="32" selection-start-line="505" selection-start-column="32" selection-end-line="505" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
                     <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-                    <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-                    <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-                    <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-                    <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+                    <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                    <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -59,9 +65,7 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-                  <folding>
-                    <element signature="imports" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -79,7 +83,7 @@
           <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2278">
+                <state relative-caret-position="2244">
                   <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -95,20 +99,16 @@
           <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
-                  <caret line="243" column="28" selection-start-line="243" selection-start-column="28" selection-end-line="243" selection-end-column="28" />
+                <state relative-caret-position="374">
+                  <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#addLink#0;class#Node#0" expanded="false" />
                     <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
                     <element signature="method#showConnection#0;class#Node#0" expanded="false" />
                     <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-                    <element signature="e#3021#3022#0" expanded="true" />
-                    <element signature="e#3057#3058#0" expanded="true" />
                     <element signature="method#findNameFragment#0;class#Node#0" expanded="false" />
                     <element signature="method#setInBranch#0;class#Node#0" expanded="false" />
-                    <element signature="e#4794#4795#0" expanded="true" />
-                    <element signature="e#4837#4838#0" expanded="true" />
                     <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
                     <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
                     <element signature="e#6254#6255#0" expanded="true" />
@@ -121,10 +121,23 @@
           <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="317">
-                  <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+                <state relative-caret-position="442">
+                  <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="BufferChecker.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferChecker.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+                  <folding>
+                    <element signature="e#273#274#0" expanded="true" />
+                    <element signature="e#299#300#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -134,7 +147,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="391">
-                  <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+                  <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
                   <folding>
                     <element signature="method#createWeightList#0;class#CircleNetwork#0" expanded="false" />
                   </folding>
@@ -183,8 +196,9 @@
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferChecker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" />
       </list>
@@ -249,6 +263,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,29 +283,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assignment3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assignment3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -298,7 +294,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../in4150/2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Assignment1" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -632,21 +628,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2150924" sideWeight="0.4968102" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60723513" sideWeight="0.14619565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19376393" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4075724" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3131783" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3129176" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13752665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13752665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -656,8 +651,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2150924" sideWeight="0.4968102" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -703,7 +700,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -712,33 +709,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -762,12 +737,8 @@
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
             <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3057#3058#0" expanded="true" />
             <element signature="method#findNameFragment#0;class#Node#0" expanded="false" />
             <element signature="method#setInBranch#0;class#Node#0" expanded="false" />
-            <element signature="e#4794#4795#0" expanded="true" />
-            <element signature="e#4837#4838#0" expanded="true" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
             <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
             <element signature="e#6254#6255#0" expanded="true" />
@@ -799,15 +770,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -816,9 +788,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -842,12 +812,8 @@
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
             <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3057#3058#0" expanded="true" />
             <element signature="method#findNameFragment#0;class#Node#0" expanded="false" />
             <element signature="method#setInBranch#0;class#Node#0" expanded="false" />
-            <element signature="e#4794#4795#0" expanded="true" />
-            <element signature="e#4837#4838#0" expanded="true" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
             <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
             <element signature="e#6254#6255#0" expanded="true" />
@@ -879,15 +845,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -896,9 +863,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="899">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -935,15 +900,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -952,9 +918,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="812">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -991,15 +955,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1008,9 +973,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,15 +1011,16 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1065,9 +1029,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1195,50 +1157,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="493">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="method#createWeightList#0;class#CircleNetwork#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="243" column="28" selection-start-line="243" selection-start-column="28" selection-end-line="243" selection-end-column="28" />
+        <state relative-caret-position="374">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
             <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="e#3021#3022#0" expanded="true" />
-            <element signature="e#3057#3058#0" expanded="true" />
             <element signature="method#findNameFragment#0;class#Node#0" expanded="false" />
             <element signature="method#setInBranch#0;class#Node#0" expanded="false" />
-            <element signature="e#4794#4795#0" expanded="true" />
-            <element signature="e#4837#4838#0" expanded="true" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
             <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
             <element signature="e#6254#6255#0" expanded="true" />
@@ -1247,10 +1185,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding>
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding>
+            <element signature="method#createWeightList#0;class#CircleNetwork#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1259,20 +1226,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="212" column="101" selection-start-line="212" selection-start-column="101" selection-end-line="212" selection-end-column="101" />
+        <state relative-caret-position="580">
+          <caret line="505" column="32" selection-start-line="505" selection-start-column="32" selection-end-line="505" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#DA_Gallager_Humblet_Spira#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveAccept#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReject#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#sendReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <element signature="method#receiveReport#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
-            <marker date="1515609272943" expanded="false" signature="1570:1580" ph=" { " />
-            <marker date="1515609272943" expanded="false" signature="1597:1603" ph=" }" />
-            <marker date="1515609272943" expanded="false" signature="2121:2644" ph="{...}" />
-            <marker date="1515609272943" expanded="false" signature="4178:4628" ph="{...}" />
+            <element signature="method#receiveChangeRoot#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#checkBuffer#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpNode#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#wakeUpMessage#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="method#messageTypeToString#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
           </folding>
         </state>
       </provider>

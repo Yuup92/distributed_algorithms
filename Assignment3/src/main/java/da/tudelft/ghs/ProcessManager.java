@@ -6,6 +6,7 @@ import da.tudelft.datastructures.Node;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.junit.runners.model.InitializationError;
 
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -36,7 +37,7 @@ public class ProcessManager  {
      */
     private static final int NUMBEROFPROCESSES = 10;
     private static final String RMI_PREFIX = "rmi://";
-    private static final String RMI_LOCALHOST = "localhost";
+    private static final String RMI_LOCALHOST = "localhost:";
     private static final String RMI_PROCESS = "/process_";
     private static final String IP = "192.168.1.42:";
     private static final int SERVERPORT = 1099;
@@ -52,7 +53,7 @@ public class ProcessManager  {
 
         String[] urls = new String[NUMBEROFPROCESSES];
 
-        if(false) {
+        if(true) {
             if(true){
                 // Starts Server
                 urls = startRemoteServer();
@@ -114,33 +115,16 @@ public class ProcessManager  {
         DA_Gallager_Humblet_Spira process;
 
         /**
-         * Starts a registry on port 1099
-         */
-        Registry registry;
-
-        try {
-            //Runtime.getRuntime().exec("rmiregistry 1099");
-            registry =  LocateRegistry.createRegistry(1099);
-        } catch (RemoteException e) {
-            System.out.println("Could not create a registry on port 1099, error "  + e);
-            e.printStackTrace();
-        }
-
-
-
-        /**
          * System.setProperty() needs to be run before System.getSecurityManager()
          *   Otherwise an exception will be thrown for not having access to the java.policy file
          *
          */
-
         //System.setProperty("java.security.policy", "D:/Trial/distributed_algorithms/Assignment3/java.policy");
-
 
         String[] urls = new String[NUMBEROFPROCESSES];
 
         for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
+            urls[i] = RMI_PREFIX + RMI_LOCALHOST + SERVERPORT + RMI_PROCESS + i;
         }
 
         try {
@@ -151,19 +135,19 @@ public class ProcessManager  {
 
         System.out.println(inetAddress.getHostAddress());
 
-//        String[] urls = null;
-//
-//        if(config != null){
-//            urls = config.getStringArray("node.url");
-//        }
- /**       try {
-            //Registry reg = LocateRegistry.createRegistry(1099);
+        /**
+         * Starts a registry on port 1099
+         */
+        Registry registry;
+
+        try {
+            registry = LocateRegistry.createRegistry(1099);
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 //DA_Gallager_Humblet_Spira stub = (DA_Gallager_Humblet_Spira) UnicastRemoteObject.exportObject(process, i);
                 new Thread((DA_Gallager_Humblet_Spira) process).start();
-                String p = "process" + i;
-                reg.rebind(p, process);
+                String p = "process_" + i;
+                registry.rebind(p, process);
                 //Naming.bind(urls[i], process);
                 procList.add(process);
             }
@@ -176,7 +160,7 @@ public class ProcessManager  {
         for (String url : urls) {
             System.out.println(i + " url " + url);
             i++;
-        }*/
+        }
 
         return urls;
 

@@ -21,6 +21,7 @@ public class Node implements Serializable{
     private int findCount;
 
     private int inBranch;
+    private int bestWeight;
     private Edge coreEdge = null;
     private Edge bestEdge = null;
     private Edge currentTestEdge= null;
@@ -89,16 +90,16 @@ public class Node implements Serializable{
 
     public void updateBestMOE() {
 
-        int bestWeight = (this.bestEdge != null) ? this.bestEdge.getWeight() : Integer.MAX_VALUE;
+        int bestW = (this.bestEdge != null) ? this.bestEdge.getWeight() : Integer.MAX_VALUE;
 
         Edge testEdge;
 
         for (int i = 0; i < nodeEdges.size(); i++) {
             testEdge = this.nodeEdges.get(i);
             if(this.bestEdge == null || this.bestEdge.getLinkToNode() != testEdge.getLinkToNode() ) {
-                if(bestWeight > testEdge.getWeight()) {
+                if(bestW > testEdge.getWeight()) {
                     this.bestEdge = testEdge;
-                    bestWeight = testEdge.getWeight();
+                    this.bestWeight = testEdge.getWeight();
                 }
             }
         }
@@ -193,6 +194,10 @@ public class Node implements Serializable{
         this.bestEdge = edge;
     }
 
+    public void setBestWeight(int w) {
+        this.bestWeight = w;
+    }
+
     /**
      * All get functions should be placed below
      */
@@ -281,5 +286,9 @@ public class Node implements Serializable{
         }
 
         return url;
+    }
+
+    public int getBestWeight() {
+        return this.bestWeight;
     }
 }

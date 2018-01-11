@@ -93,7 +93,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(SHOW_SEND_MESSAGES) {
             System.out.println(processID + " Node: is sending CONNECT to node: " + url);
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -119,7 +119,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(!ONLY_SHOW_INBRANCH){
             System.out.println(processID + " Node: is receiving CONNECT message from node: " + cM.getNode().getNodeNumber());
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -167,7 +167,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(SHOW_SEND_MESSAGES) {
             System.out.println(processID + " Node: is sending INITIATE to node: " + url);
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -199,6 +199,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         this.node.setInBranch(s_nodeNumber);
 
         this.node.resetBestEdge();
+        this.node.setBestWeight(Integer.MAX_VALUE);
 
         ArrayList<Edge> listEdges = this.node.getNodeEdges();
 
@@ -228,7 +229,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
             if(SHOW_SEND_MESSAGES) {
                 System.out.println(processID + " Node: is sending TEST to node: " + url);
-                System.out.println("It belongs to fragment" + node.getNameFragement());
+                System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
                 //printStatus();
             }
@@ -257,7 +258,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(!ONLY_SHOW_INBRANCH) {
             System.out.println(processID + " Node: has received TEST message from node: " + tM.getNodeNumber());
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -327,7 +328,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(!ONLY_SHOW_INBRANCH) {
             System.out.println(processID + " Node: has received ACCEPT message from node: " + s_NN);
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -344,8 +345,9 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             weight = this.node.getBestEdge().getWeight();
         }
 
-        if( edge.getWeight() < weight ) {
+        if( edge.getWeight() < this.node.getBestWeight() ) {
             this.node.setBestEdge(edge);
+            this.node.setBestWeight(edge.getWeight());
         }
         sendReport();
     }
@@ -357,7 +359,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(!ONLY_SHOW_INBRANCH) {
             System.out.println(processID + " Node: has received REJECT message from node: " + s_NN);
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
         }
 
@@ -386,7 +388,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
             if(SHOW_SEND_MESSAGES) {
                 System.out.println(processID + " Node: is sending REPORT to node: " + this.node.getUrlEdgeInMST());
-                System.out.println("It belongs to fragment" + node.getNameFragement());
+                System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
                 //printStatus();
             }
@@ -396,7 +398,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 //                this.node.updateBestMOE();
 //            }
 
-            ReportMessage rM = new ReportMessage(this.node.getNodeNumber(), this.node.getBestEdge().getWeight());
+            ReportMessage rM = new ReportMessage(this.node.getNodeNumber(), this.node.getBestWeight());
 
             try{
                 DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
@@ -416,7 +418,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(!ONLY_SHOW_INBRANCH) {
             System.out.println(processID + " Node: has received an REPORT from node: " + rM.getNodeNumber());
-            System.out.println("It belongs to fragment" + node.getNameFragement());
+            System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
             //printStatus();
         }
@@ -427,8 +429,9 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         if(s_NN != this.node.getInBranch() ) {
             this.findCount = this.findCount - 1;
-            if( w < this.node.getBestEdge().getWeight() ) {
+            if( w < this.node.getBestWeight()) {
                 this.node.setBestEdge(edge);
+                this.node.setBestWeight(w);
             }
             sendReport();
         } else {
@@ -455,7 +458,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     public void sendChangeRoot(){
 
         System.out.println("I want to change root");
-        System.out.println("It belongs to fragment" + node.getNameFragement());
+        System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
 
         String url = this.node.getBestEdge().getUrl();
@@ -486,7 +489,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
         randomDelay(DELAY_PROCESSES);
 
         System.out.println(processID + " Node: has received CHANGEROOT message from node: " + s_NN);
-        System.out.println("It belongs to fragment" + node.getNameFragement());
+        System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
 
         sendChangeRoot();
@@ -509,7 +512,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     public void receive(String message) {
         int n = processID + 1;
         System.out.println(n + " has received a message: " + message);
-        System.out.println("It belongs to fragment" + node.getNameFragement());
+        System.out.println("It belongs to fragment " + node.getNameFragement() + " and has level " + node.getLevelFragement());
 
     }
 

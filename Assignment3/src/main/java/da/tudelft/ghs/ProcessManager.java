@@ -12,6 +12,8 @@ import java.net.UnknownHostException;
 import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.ArrayList;
 
 public class ProcessManager  {
@@ -35,6 +37,7 @@ public class ProcessManager  {
     private static final String RMI_LOCALHOST = "localhost";
     private static final String RMI_PROCESS = "/process_";
     private static final String IP = "192.168.1.42";
+    private static final int SERVERPORT = 1099;
 
     private static final String RMI_REMOTE_IP = "";
 
@@ -48,7 +51,8 @@ public class ProcessManager  {
         String[] urls = new String[NUMBEROFPROCESSES];
 
         if(true) {
-            if(false){
+            if(true){
+                // Starts Server
                 urls = useConfigurationFile();
             } else {
                 urls = connectToRemoteServer();
@@ -107,11 +111,36 @@ public class ProcessManager  {
 
     public String[] useConfigurationFile() {
 
-        Configuration config = null;
-        try{
-            config = new PropertiesConfiguration("network.cfg");
-        } catch (ConfigurationException e) {
+        DA_Gallager_Humblet_Spira process;
+
+        /**
+         * Starts a registry on port 1099
+         */
+        try {
+            LocateRegistry.createRegistry(1099);
+        } catch (RemoteException e) {
+            System.out.println("Could not create a registry on port 1099, error "  + e);
             e.printStackTrace();
+        }
+
+        /**
+         * System.setProperty() needs to be run before System.getSecurityManager()
+         *   Otherwise an exception will be thrown for not having access to the java.policy file
+         *
+         */
+
+        //System.setProperty("java.security.policy", "D:/Trial/distributed_algorithms/Assignment3/java.policy");
+        //        Configuration config = null;
+//        try{
+//            config = new PropertiesConfiguration("network.cfg");
+//        } catch (ConfigurationException e) {
+//            e.printStackTrace();
+//        }
+
+        String[] urls = new String[NUMBEROFPROCESSES];
+
+        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+            urls[i] = RMI_PREFIX + RMI_LOCALHOST + RMI_PROCESS + i;
         }
 
         try {
@@ -122,15 +151,22 @@ public class ProcessManager  {
 
         System.out.println(inetAddress.getHostAddress());
 
-
-
-        String[] urls = null;
-
-        if(config != null){
-            urls = config.getStringArray("node.url");
+//        String[] urls = null;
+//
+//        if(config != null){
+//            urls = config.getStringArray("node.url");
+//        }
+        try {
+            for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+                process = new DA_Gallager_Humblet_Spira(i, urls[i]);
+                new Thread((DA_Gallager_Humblet_Spira) process).start();
+                Naming.bind(urls[i], process);
+                procList.add(process);
+            }
+        } catch (RemoteException | AlreadyBoundException | MalformedURLException e) {
+            System.out.println("Processes did not want to start, error: " + e);
+            e.printStackTrace();
         }
-
-        useLocalDistributedSystem(urls);
 
         int i = 1;
         for (String url : urls) {
@@ -144,13 +180,35 @@ public class ProcessManager  {
 
     public String[] connectToRemoteServer(){
 
-        String[] urls = new String[NUMBEROFPROCESSES];
+        //VM parameters: -Djava.security.policy=file:./java.policy
 
-        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
-            urls[i] = RMI_PREFIX + IP + RMI_PROCESS + i;
+        String[] urls;
+
+        if (System.getSecurityManager() == null) {
+            System.setSecurityManager(new SecurityManager());
+        }
+        try {
+
+            Registry registry = LocateRegistry.getRegistry(IP, SERVERPORT);
+            urls = registry.list();
+            int i = 1;
+            for (String url : urls) {
+                System.out.println(i + " url " + url);
+                i++;
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
 
-        useLocalDistributedSystem(urls);
+
+
+//        String[] urls = new String[NUMBEROFPROCESSES];
+//
+//        for (int i = 0; i < NUMBEROFPROCESSES; i++) {
+//            urls[i] = RMI_PREFIX + IP + RMI_PROCESS + i;
+//        }
+//
+//        useLocalDistributedSystem(urls);
 
 
 

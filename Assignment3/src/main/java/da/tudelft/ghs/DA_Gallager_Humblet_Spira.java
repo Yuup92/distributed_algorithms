@@ -431,7 +431,7 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
             DA_Gallager_Humblet_Spira_RMI receiver = (DA_Gallager_Humblet_Spira_RMI) Naming.lookup(url);
             receiver.receive(message);
         } catch (RemoteException | NotBoundException | MalformedURLException e) {
-            System.out.println("For process: " + processID + " an error occured sending INITIATE, error: " + e);
+            System.out.println("For process: " + processID + " an error occured sending sendMessage, error: " + e);
             e.printStackTrace();
         }
 

@@ -38,7 +38,7 @@ public class ProcessManager  {
     private static final String RMI_PREFIX = "rmi://";
     private static final String RMI_LOCALHOST = "localhost";
     private static final String RMI_PROCESS = "/process_";
-    private static final String IP = "192.168.1.42";
+    private static final String IP = "192.168.1.42:";
     private static final int SERVERPORT = 1099;
 
     private static final String RMI_REMOTE_IP = "";
@@ -55,7 +55,7 @@ public class ProcessManager  {
         if(false) {
             if(true){
                 // Starts Server
-                urls = useConfigurationFile();
+                urls = startRemoteServer();
             } else {
                 urls = connectToRemoteServer();
             }
@@ -109,19 +109,24 @@ public class ProcessManager  {
 
     }
 
-    public String[] useConfigurationFile() {
+    public String[] startRemoteServer() {
 
         DA_Gallager_Humblet_Spira process;
 
         /**
          * Starts a registry on port 1099
          */
-//        try {
-//            LocateRegistry.createRegistry(1099);
-//        } catch (RemoteException e) {
-//            System.out.println("Could not create a registry on port 1099, error "  + e);
-//            e.printStackTrace();
-//        }
+        Registry registry;
+
+        try {
+            //Runtime.getRuntime().exec("rmiregistry 1099");
+            registry =  LocateRegistry.createRegistry(1099);
+        } catch (RemoteException e) {
+            System.out.println("Could not create a registry on port 1099, error "  + e);
+            e.printStackTrace();
+        }
+
+
 
         /**
          * System.setProperty() needs to be run before System.getSecurityManager()
@@ -130,12 +135,7 @@ public class ProcessManager  {
          */
 
         //System.setProperty("java.security.policy", "D:/Trial/distributed_algorithms/Assignment3/java.policy");
-        //        Configuration config = null;
-//        try{
-//            config = new PropertiesConfiguration("network.cfg");
-//        } catch (ConfigurationException e) {
-//            e.printStackTrace();
-//        }
+
 
         String[] urls = new String[NUMBEROFPROCESSES];
 
@@ -156,8 +156,8 @@ public class ProcessManager  {
 //        if(config != null){
 //            urls = config.getStringArray("node.url");
 //        }
-        try {
-            Registry reg = LocateRegistry.createRegistry(1099);
+ /**       try {
+            //Registry reg = LocateRegistry.createRegistry(1099);
             for (int i = 0; i < NUMBEROFPROCESSES; i++) {
                 process = new DA_Gallager_Humblet_Spira(i, urls[i]);
                 //DA_Gallager_Humblet_Spira stub = (DA_Gallager_Humblet_Spira) UnicastRemoteObject.exportObject(process, i);
@@ -176,7 +176,7 @@ public class ProcessManager  {
         for (String url : urls) {
             System.out.println(i + " url " + url);
             i++;
-        }
+        }*/
 
         return urls;
 

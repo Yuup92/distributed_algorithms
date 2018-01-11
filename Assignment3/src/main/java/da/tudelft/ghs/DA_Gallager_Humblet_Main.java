@@ -10,8 +10,6 @@ public class DA_Gallager_Humblet_Main {
 
         System.out.println("Present Project Directory : "+ System.getProperty("user.dir"));
 
-
-
         new ProcessManager().startNetwork();
 
 

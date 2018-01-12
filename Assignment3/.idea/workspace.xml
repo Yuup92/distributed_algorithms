@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4e9facff-ac56-4d5f-87b3-30a01a5954a5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" afterPath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" afterPath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,7 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Assignment3$DA_Gallager_Humblet_Main.coverage" NAME="DA_Gallager_Humblet_Main Coverage Results" MODIFIED="1515667411014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Assignment3$DA_Gallager_Humblet_Main.coverage" NAME="DA_Gallager_Humblet_Main Coverage Results" MODIFIED="1515717332447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>da.tudelft.ghs.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Assignment3$DA_Gallager_Humblet_Main__1_.coverage" NAME="DA_Gallager_Humblet_Main (1) Coverage Results" MODIFIED="1515620843205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -35,10 +34,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
+      <file leaf-file-name="DA_Gallager_Humblet_Spira_RMI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DA_Gallager_Humblet_Spira.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="-5559">
               <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,21 +67,56 @@
             <state relative-caret-position="2091">
               <caret line="192" column="16" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="16" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="method#addLink#0;class#Node#0" expanded="false" />
                 <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
                 <element signature="method#showConnection#0;class#Node#0" expanded="false" />
                 <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-                <element signature="e#4991#4992#0" expanded="true" />
-                <element signature="e#5027#5028#0" expanded="true" />
-                <element signature="e#5067#5068#0" expanded="true" />
-                <element signature="e#5102#5103#0" expanded="true" />
+                <element signature="e#3020#3021#0" expanded="false" />
+                <element signature="e#3056#3057#0" expanded="false" />
+                <element signature="e#4334#4335#0" expanded="false" />
+                <element signature="e#4372#4373#0" expanded="false" />
+                <element signature="e#4414#4415#0" expanded="false" />
+                <element signature="e#4455#4456#0" expanded="false" />
+                <element signature="e#4494#4495#0" expanded="false" />
+                <element signature="e#4532#4533#0" expanded="false" />
+                <element signature="e#4570#4571#0" expanded="false" />
+                <element signature="e#4607#4608#0" expanded="false" />
+                <element signature="e#4652#4653#0" expanded="false" />
+                <element signature="e#4693#4694#0" expanded="false" />
+                <element signature="e#4739#4740#0" expanded="false" />
+                <element signature="e#4780#4781#0" expanded="false" />
+                <element signature="e#4821#4822#0" expanded="false" />
+                <element signature="e#4857#4858#0" expanded="false" />
+                <element signature="e#4906#4907#0" expanded="false" />
+                <element signature="e#4949#4950#0" expanded="false" />
                 <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
+                <element signature="e#5200#5201#0" expanded="false" />
+                <element signature="e#5238#5239#0" expanded="false" />
+                <element signature="e#5268#5269#0" expanded="false" />
+                <element signature="e#5299#5300#0" expanded="false" />
+                <element signature="e#5344#5345#0" expanded="false" />
+                <element signature="e#5376#5377#0" expanded="false" />
+                <element signature="e#5406#5407#0" expanded="false" />
+                <element signature="e#5437#5438#0" expanded="false" />
+                <element signature="e#5474#5475#0" expanded="false" />
+                <element signature="e#5515#5516#0" expanded="false" />
+                <element signature="e#5553#5554#0" expanded="false" />
+                <element signature="e#5595#5596#0" expanded="false" />
+                <element signature="e#5639#5640#0" expanded="false" />
+                <element signature="e#5687#5688#0" expanded="false" />
+                <element signature="e#5720#5721#0" expanded="false" />
+                <element signature="e#5756#5757#0" expanded="false" />
+                <element signature="e#5793#5794#0" expanded="false" />
+                <element signature="e#5841#5842#0" expanded="false" />
                 <element signature="method#getCurrentTestEdge#0;class#Node#0" expanded="false" />
+                <element signature="e#6185#6186#0" expanded="false" />
+                <element signature="e#6222#6223#0" expanded="false" />
                 <element signature="method#getBestEdge#0;class#Node#0" expanded="false" />
                 <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
+                <element signature="e#6674#6675#0" expanded="false" />
+                <element signature="e#6710#6711#0" expanded="false" />
                 <element signature="method#getUrlEdgeInMST#0;class#Node#0" expanded="false" />
-                <element signature="e#7028#7029#0" expanded="true" />
-                <element signature="e#7066#7067#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,7 +127,22 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#900#901#0" expanded="false" />
+                <element signature="e#943#944#0" expanded="false" />
+                <element signature="e#987#988#0" expanded="false" />
+                <element signature="e#1031#1032#0" expanded="false" />
+                <element signature="e#1070#1071#0" expanded="false" />
+                <element signature="e#1109#1110#0" expanded="false" />
+                <element signature="e#1142#1143#0" expanded="false" />
+                <element signature="e#1179#1180#0" expanded="false" />
+                <element signature="e#1583#1584#0" expanded="false" />
+                <element signature="e#1621#1622#0" expanded="false" />
+                <element signature="e#1651#1652#0" expanded="false" />
+                <element signature="e#1685#1686#0" expanded="false" />
+                <element signature="e#1715#1716#0" expanded="false" />
+                <element signature="e#1746#1747#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,12 +160,11 @@
       <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="140" column="9" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
+            <state relative-caret-position="371">
+              <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-                <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -117,7 +175,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
               <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,9 +187,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="527">
               <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,7 +264,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1912" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -260,6 +318,104 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tudelft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tudelft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ghs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -301,7 +457,7 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="da.tudelft.ghs.DA_Gallager_Humblet_Main" />
-      <option name="VM_PARAMETERS" value="-Djava.security.policy=file:./java.policy" />
+      <option name="VM_PARAMETERS" value="-Djava.security.policy=file:./java.policy -Djava.rmi.server.hostname=&quot;172.25.90.17&quot; -Djava.security.debug=access,failure" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -584,7 +740,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -594,9 +750,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60723513" sideWeight="0.14619565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20824054" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38641426" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1247216" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15812917" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -611,7 +768,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.108205125" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -696,7 +852,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -706,21 +861,56 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="method#addLink#0;class#Node#0" expanded="false" />
             <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
             <element signature="method#showConnection#0;class#Node#0" expanded="false" />
             <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="e#4991#4992#0" expanded="true" />
-            <element signature="e#5027#5028#0" expanded="true" />
-            <element signature="e#5067#5068#0" expanded="true" />
-            <element signature="e#5102#5103#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="false" />
+            <element signature="e#3056#3057#0" expanded="false" />
+            <element signature="e#4334#4335#0" expanded="false" />
+            <element signature="e#4372#4373#0" expanded="false" />
+            <element signature="e#4414#4415#0" expanded="false" />
+            <element signature="e#4455#4456#0" expanded="false" />
+            <element signature="e#4494#4495#0" expanded="false" />
+            <element signature="e#4532#4533#0" expanded="false" />
+            <element signature="e#4570#4571#0" expanded="false" />
+            <element signature="e#4607#4608#0" expanded="false" />
+            <element signature="e#4652#4653#0" expanded="false" />
+            <element signature="e#4693#4694#0" expanded="false" />
+            <element signature="e#4739#4740#0" expanded="false" />
+            <element signature="e#4780#4781#0" expanded="false" />
+            <element signature="e#4821#4822#0" expanded="false" />
+            <element signature="e#4857#4858#0" expanded="false" />
+            <element signature="e#4906#4907#0" expanded="false" />
+            <element signature="e#4949#4950#0" expanded="false" />
             <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
+            <element signature="e#5200#5201#0" expanded="false" />
+            <element signature="e#5238#5239#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5299#5300#0" expanded="false" />
+            <element signature="e#5344#5345#0" expanded="false" />
+            <element signature="e#5376#5377#0" expanded="false" />
+            <element signature="e#5406#5407#0" expanded="false" />
+            <element signature="e#5437#5438#0" expanded="false" />
+            <element signature="e#5474#5475#0" expanded="false" />
+            <element signature="e#5515#5516#0" expanded="false" />
+            <element signature="e#5553#5554#0" expanded="false" />
+            <element signature="e#5595#5596#0" expanded="false" />
+            <element signature="e#5639#5640#0" expanded="false" />
+            <element signature="e#5687#5688#0" expanded="false" />
+            <element signature="e#5720#5721#0" expanded="false" />
+            <element signature="e#5756#5757#0" expanded="false" />
+            <element signature="e#5793#5794#0" expanded="false" />
+            <element signature="e#5841#5842#0" expanded="false" />
             <element signature="method#getCurrentTestEdge#0;class#Node#0" expanded="false" />
+            <element signature="e#6185#6186#0" expanded="false" />
+            <element signature="e#6222#6223#0" expanded="false" />
             <element signature="method#getBestEdge#0;class#Node#0" expanded="false" />
             <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
+            <element signature="e#6674#6675#0" expanded="false" />
+            <element signature="e#6710#6711#0" expanded="false" />
             <element signature="method#getUrlEdgeInMST#0;class#Node#0" expanded="false" />
-            <element signature="e#7028#7029#0" expanded="true" />
-            <element signature="e#7066#7067#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -779,7 +969,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -830,7 +1019,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -882,7 +1070,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -925,7 +1112,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -984,14 +1170,6 @@
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/ArrayList.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="841">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/concurrent/ThreadPoolExecutor.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/security/AccessControlContext.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/java.policy">
@@ -1012,9 +1190,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,6 +1221,98 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#900#901#0" expanded="false" />
+            <element signature="e#943#944#0" expanded="false" />
+            <element signature="e#987#988#0" expanded="false" />
+            <element signature="e#1031#1032#0" expanded="false" />
+            <element signature="e#1070#1071#0" expanded="false" />
+            <element signature="e#1109#1110#0" expanded="false" />
+            <element signature="e#1142#1143#0" expanded="false" />
+            <element signature="e#1179#1180#0" expanded="false" />
+            <element signature="e#1583#1584#0" expanded="false" />
+            <element signature="e#1621#1622#0" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1685#1686#0" expanded="false" />
+            <element signature="e#1715#1716#0" expanded="false" />
+            <element signature="e#1746#1747#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2091">
+          <caret line="192" column="16" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#addLink#0;class#Node#0" expanded="false" />
+            <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#showConnection#0;class#Node#0" expanded="false" />
+            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
+            <element signature="e#3020#3021#0" expanded="false" />
+            <element signature="e#3056#3057#0" expanded="false" />
+            <element signature="e#4334#4335#0" expanded="false" />
+            <element signature="e#4372#4373#0" expanded="false" />
+            <element signature="e#4414#4415#0" expanded="false" />
+            <element signature="e#4455#4456#0" expanded="false" />
+            <element signature="e#4494#4495#0" expanded="false" />
+            <element signature="e#4532#4533#0" expanded="false" />
+            <element signature="e#4570#4571#0" expanded="false" />
+            <element signature="e#4607#4608#0" expanded="false" />
+            <element signature="e#4652#4653#0" expanded="false" />
+            <element signature="e#4693#4694#0" expanded="false" />
+            <element signature="e#4739#4740#0" expanded="false" />
+            <element signature="e#4780#4781#0" expanded="false" />
+            <element signature="e#4821#4822#0" expanded="false" />
+            <element signature="e#4857#4858#0" expanded="false" />
+            <element signature="e#4906#4907#0" expanded="false" />
+            <element signature="e#4949#4950#0" expanded="false" />
+            <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
+            <element signature="e#5200#5201#0" expanded="false" />
+            <element signature="e#5238#5239#0" expanded="false" />
+            <element signature="e#5268#5269#0" expanded="false" />
+            <element signature="e#5299#5300#0" expanded="false" />
+            <element signature="e#5344#5345#0" expanded="false" />
+            <element signature="e#5376#5377#0" expanded="false" />
+            <element signature="e#5406#5407#0" expanded="false" />
+            <element signature="e#5437#5438#0" expanded="false" />
+            <element signature="e#5474#5475#0" expanded="false" />
+            <element signature="e#5515#5516#0" expanded="false" />
+            <element signature="e#5553#5554#0" expanded="false" />
+            <element signature="e#5595#5596#0" expanded="false" />
+            <element signature="e#5639#5640#0" expanded="false" />
+            <element signature="e#5687#5688#0" expanded="false" />
+            <element signature="e#5720#5721#0" expanded="false" />
+            <element signature="e#5756#5757#0" expanded="false" />
+            <element signature="e#5793#5794#0" expanded="false" />
+            <element signature="e#5841#5842#0" expanded="false" />
+            <element signature="method#getCurrentTestEdge#0;class#Node#0" expanded="false" />
+            <element signature="e#6185#6186#0" expanded="false" />
+            <element signature="e#6222#6223#0" expanded="false" />
+            <element signature="method#getBestEdge#0;class#Node#0" expanded="false" />
+            <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
+            <element signature="e#6674#6675#0" expanded="false" />
+            <element signature="e#6710#6711#0" expanded="false" />
+            <element signature="method#getUrlEdgeInMST#0;class#Node#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1057,41 +1325,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2091">
-          <caret line="192" column="16" selection-start-line="192" selection-start-column="16" selection-end-line="192" selection-end-column="16" />
-          <folding>
-            <element signature="method#addLink#0;class#Node#0" expanded="false" />
-            <element signature="method#checkConnection#0;class#Node#0" expanded="false" />
-            <element signature="method#showConnection#0;class#Node#0" expanded="false" />
-            <element signature="method#updateBestMOE#0;class#Node#0" expanded="false" />
-            <element signature="e#4991#4992#0" expanded="true" />
-            <element signature="e#5027#5028#0" expanded="true" />
-            <element signature="e#5067#5068#0" expanded="true" />
-            <element signature="e#5102#5103#0" expanded="true" />
-            <element signature="docComment;method#getNodeNumber#0;class#Node#0" expanded="false" />
-            <element signature="method#getCurrentTestEdge#0;class#Node#0" expanded="false" />
-            <element signature="method#getBestEdge#0;class#Node#0" expanded="false" />
-            <element signature="method#getEdgeWithConnection#0;class#Node#0" expanded="false" />
-            <element signature="method#getUrlEdgeInMST#0;class#Node#0" expanded="false" />
-            <element signature="e#7028#7029#0" expanded="true" />
-            <element signature="e#7066#7067#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="-5559">
           <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1106,12 +1342,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="140" column="9" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
+        <state relative-caret-position="371">
+          <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
-            <element signature="method#connectToRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -621,4 +621,8 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
 
         }
     }
+
+    public void sayHello() {
+        System.out.println("Hello, World!");
+    }
 }

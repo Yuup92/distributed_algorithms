@@ -39,4 +39,6 @@ public interface DA_Gallager_Humblet_Spira_RMI extends Remote {
 
     public void receive(String message) throws RemoteException;
 
+    public void sayHello() throws RemoteException;
+
 }

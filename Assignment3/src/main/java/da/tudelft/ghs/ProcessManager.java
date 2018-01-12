@@ -55,7 +55,7 @@ public class ProcessManager  {
         String[] urls = new String[NUMBEROFPROCESSES];
 
         if(true) {
-            if(true){
+            if(false){
                 // Starts Server
                 urls = startRemoteServer();
             } else {
@@ -74,7 +74,7 @@ public class ProcessManager  {
             procList.get(i).addNode(nodeList.get(i));
         }
 
-        procList.get(3).wakeUp();
+        //procList.get(3).wakeUp();
 
         //procList.get(3).sendMessage(urls[2], " This is " + urls[3] + " checking in!");
 
@@ -161,10 +161,15 @@ public class ProcessManager  {
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new SecurityManager());
         }
+
+        System.setProperty("java.rmi.server.hostname","192.168.1.42");
+
         try {
-            Registry registry = LocateRegistry.getRegistry(IP2, SERVERPORT);
+            Registry registry = LocateRegistry.createRegistry(1099);
+            registry = LocateRegistry.getRegistry(IP, SERVERPORT);
             DA_Gallager_Humblet_Spira process = (DA_Gallager_Humblet_Spira) registry.lookup("Server");
             process.sayHello();
+            System.out.println("Hey man");
             //urls = registry.list();
         } catch (RemoteException | NotBoundException e) {
             e.printStackTrace();

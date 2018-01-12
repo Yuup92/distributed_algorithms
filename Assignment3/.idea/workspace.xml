@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e9facff-ac56-4d5f-87b3-30a01a5954a5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/DA_Gallager_Humblet_Spira.class" afterPath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/DA_Gallager_Humblet_Spira.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.class" afterPath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/ProcessManager.class" afterPath="$PROJECT_DIR$/target/classes/da/tudelft/ghs/ProcessManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" afterPath="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
     </list>
@@ -37,8 +40,8 @@
       <file leaf-file-name="DA_Gallager_Humblet_Spira_RMI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="463">
+              <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -47,8 +50,8 @@
       <file leaf-file-name="DA_Gallager_Humblet_Spira.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5559">
-              <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+            <state relative-caret-position="412">
+              <caret line="625" column="41" selection-start-line="625" selection-start-column="41" selection-end-line="625" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
@@ -56,6 +59,8 @@
                 <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
                 <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
                 <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+                <element signature="e#21333#21334#0" expanded="true" />
+                <element signature="e#21384#21385#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,11 +165,12 @@
       <file leaf-file-name="ProcessManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
+            <state relative-caret-position="62">
+              <caret line="167" column="68" selection-start-line="167" selection-start-column="68" selection-end-line="167" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+                <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -239,13 +245,13 @@
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/ConnectMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Edge.java" />
-        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java" />
         <option value="$PROJECT_DIR$/src/main/resources/java.policy" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/FullNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/bufferMessage/BufferChecker.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/Network/CircleNetwork.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/datastructures/Node.java" />
+        <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java" />
         <option value="$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java" />
       </list>
@@ -457,7 +463,7 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="da.tudelft.ghs.DA_Gallager_Humblet_Main" />
-      <option name="VM_PARAMETERS" value="-Djava.security.policy=file:./java.policy -Djava.rmi.server.hostname=&quot;172.25.90.17&quot; -Djava.security.debug=access,failure" />
+      <option name="VM_PARAMETERS" value="-Djava.security.policy=file:./java.policy -Djava.security.debug=access,failure" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -741,7 +747,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -750,10 +756,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60723513" sideWeight="0.14619565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38641426" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38641426" sideWeight="0.85380435" order="2" side_tool="false" content_ui="tabs" x="1579" y="275" width="1509" height="1612" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15812917" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13585746" sideWeight="0.4826087" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18923241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -833,6 +839,8 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -852,6 +860,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -942,6 +951,8 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -969,6 +980,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -992,6 +1004,8 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1019,6 +1033,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1042,6 +1057,8 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1070,6 +1087,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1093,6 +1111,8 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1112,6 +1132,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1309,14 +1330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1327,8 +1340,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5559">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state relative-caret-position="412">
+          <caret line="625" column="41" selection-start-line="625" selection-start-column="41" selection-end-line="625" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#wakeUp#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
@@ -1336,17 +1349,28 @@
             <element signature="method#receiveConnect#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#sendInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
             <element signature="method#receiveInitiate#0;class#DA_Gallager_Humblet_Spira#0" expanded="false" />
+            <element signature="e#21333#21334#0" expanded="true" />
+            <element signature="e#21384#21385#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/DA_Gallager_Humblet_Spira_RMI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/da/tudelft/ghs/ProcessManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="172" column="53" selection-start-line="172" selection-start-column="53" selection-end-line="172" selection-end-column="53" />
+        <state relative-caret-position="62">
+          <caret line="167" column="68" selection-start-line="167" selection-start-column="68" selection-end-line="167" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#useLocalDistributedSystem#0;class#ProcessManager#0" expanded="false" />
+            <element signature="method#startRemoteServer#0;class#ProcessManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

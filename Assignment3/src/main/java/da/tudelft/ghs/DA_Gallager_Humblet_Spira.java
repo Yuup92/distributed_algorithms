@@ -48,6 +48,10 @@ public class DA_Gallager_Humblet_Spira extends UnicastRemoteObject
     private final static boolean SHOW_SEND_MESSAGES = true;
     private final static boolean BUFFER_CHECK_THREAD = true;
 
+    public DA_Gallager_Humblet_Spira() throws RemoteException {
+        super();
+    }
+
     public DA_Gallager_Humblet_Spira(int ID, String url) throws RemoteException{
         this.processID = ID;
         this._url = url;
